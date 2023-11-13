@@ -103,32 +103,30 @@
       text-align: center;
     }
 
-/* New styles for mobile responsiveness */
-    @media only screen and (max-width: 767px) {
+/* Media query for mobile devices */
+    @media (max-width: 767px) {
       header {
-        padding: 5px;
+        padding: 10px; /* Adjusted padding for smaller screens */
       }
 
       .header-left h1 {
-        font-size: 24px;
+        font-size: 36px; /* Increased font size for the company name */
       }
 
       .header-middle {
-        display: none;
+        display: none; /* Hide the navigation on smaller screens */
       }
 
       footer {
-        padding: 5px;
+        padding: 10px; /* Adjusted footer padding */
       }
 
       footer p {
-        font-size: 12px;
+        font-size: 16px; /* Increased font size for the copyright */
       }
 
-      .text-overlay {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      section .text-overlay {
+        top: 40%; /* Adjusted text overlay position */
       }
     }
     /* Chat Box Styles */
