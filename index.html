@@ -103,29 +103,40 @@
       text-align: center;
     }
 
- @media (max-width: 767px) {
+@media (max-width: 767px) {
       header {
-        padding: 10px 20px; /* Adjusted padding for smaller screens */
+        padding: 10px 20px;
+        flex-direction: column; /* Adjusted header layout for smaller screens */
       }
 
-      .header-left h1 {
-        font-size: 24px; /* Reduced font size for the company name */
+      .header-left {
+        order: 1; /* Changing the order of the header elements */
+        text-align: center; /* Centering the company name */
       }
 
       .header-middle {
-        display: none; /* Hiding the navigation on smaller screens */
+        display: block; /* Show the navigation on smaller screens */
+        order: 3; /* Re-ordering */
+        text-align: center; /* Centering the navigation */
+        margin-top: 10px; /* Adjusted margin for spacing */
+      }
+
+      nav ul {
+        display: block; /* Show list items in a vertical layout */
+        text-align: center; /* Centering the navigation links */
       }
 
       nav ul li {
-        margin-right: 5px; /* Decreased margin between navigation items */
+        margin: 5px 0; /* Adjusted margin for navigation items */
       }
 
       footer {
-        padding: 10px 20px; /* Adjusted footer padding */
+        padding: 10px 20px;
+        text-align: center; /* Centering the content */
       }
 
       footer p {
-        font-size: 14px; /* Decreased font size for the copyright */
+        font-size: 14px;
       }
 
       section .text-overlay {
