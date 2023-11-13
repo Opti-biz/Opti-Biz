@@ -103,6 +103,34 @@
       text-align: center;
     }
 
+/* Media query for mobile devices */
+    @media (max-width: 767px) {
+      header {
+        padding: 5px; /* Adjust padding for smaller screens */
+      }
+
+      .header-left {
+        font-size: 18px; /* Increase font size for the company name */
+      }
+
+      .header-middle {
+        display: none; /* Hide the navigation on smaller screens */
+      }
+
+      footer {
+        padding: 5px; /* Adjust footer padding */
+      }
+
+      footer p {
+        font-size: 12px; /* Decrease font size for the copyright */
+      }
+
+      section .text-overlay {
+        text-align: center;
+        top: 50%; /* Center text vertically */
+        transform: translate(-50%, -50%);
+      }
+    }
     /* Chat Box Styles */
 
     .chat-box {
