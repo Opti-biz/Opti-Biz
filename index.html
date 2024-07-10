@@ -104,8 +104,18 @@
     footer {
       background-color: #000;
       color: #fff;
-      padding: 10px;
+      padding: 20px 10px;
       text-align: center;
+      position: relative;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
     }
 
     .text-overlay {
@@ -239,7 +249,7 @@
       }
 
       footer {
-        padding: 10px 20px;
+        padding: 20px 10px 60px;
         text-align: center;
       }
 
@@ -329,16 +339,6 @@
         chatBody.scrollTop = chatBody.scrollHeight;
       }
 
-      function generateTypingDelay() {
-        return Math.floor(Math.random() * 8000) + 200;
-      }
-
-      async function addAIMessageWithDelay(message) {
-        const delay = generateTypingDelay();
-        await new Promise(resolve => setTimeout(resolve, delay));
-        addAIMessage(message);
-      }
-
       function addAIMessage(message) {
         const aiMessage = document.createElement('div');
         aiMessage.classList.add('chat-message', 'ai');
@@ -418,6 +418,10 @@
             }, generateTypingDelay());
           }
         }
+      }
+
+      function generateTypingDelay() {
+        return Math.floor(Math.random() * 1000) + 500;
       }
 
       minimizeButton.addEventListener('click', toggleChatBox);
