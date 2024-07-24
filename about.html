@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opti-Biz</title>
   <style>
     * {
       box-sizing: border-box;
@@ -11,7 +13,8 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: #000; /* Set the desired text color */
+      color: #ffffff;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     .container {
@@ -20,27 +23,24 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: #f2f2f2;
+      background-color: #ffffff;
     }
 
     header {
-      background-color: #333;
-      padding: 10px;
+      background-color: #000000;
+      padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #fff;
+      color: #ffffff;
+      flex-wrap: wrap; /* Allow wrapping */
+      border-bottom: none; /* Remove any border */
+      box-shadow: none; /* Ensure no box shadow */
     }
 
     .header-left {
       display: flex;
       align-items: center;
-    }
-
-    .header-middle {
-      display: flex;
-      align-items: center;
-      width: 100%;
     }
 
     h1 {
@@ -55,7 +55,9 @@
     }
 
     nav {
-      margin-left: auto;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap; /* Allow wrapping */
     }
 
     nav ul {
@@ -63,48 +65,91 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
+      flex-wrap: wrap; /* Allow wrapping */
     }
 
     nav ul li {
-      margin-right: 10px;
+      margin-left: 20px;
     }
 
     nav ul li a {
       display: block;
       padding: 5px;
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
     }
 
     section {
+      position: relative;
       padding: 20px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-image: url(""); /* Replace "path/to/your/image.jpg" with the correct image path */
-      background-size: cover;
-      background-position: center;
+      overflow: hidden; /* Ensure video doesn't overflow */
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
+      background-color: #000000;
+      color: #ffffff;
+      padding: 20px 10px;
       text-align: center;
+      position: relative;
+      border-top: none; /* Remove any border */
+      box-shadow: none; /* Ensure no box shadow */
     }
-    
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ffffff;
+      z-index: 1;
+    }
+
+    .text-overlay h2 {
+      font-size: 55px;
+      margin-bottom: 10px;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+
+    .text-overlay p {
+      font-size: 20px;
+      color: #ffffff;
+    }
+
     /* Chat Box Styles */
-    
+
     .chat-box {
       position: fixed;
       bottom: 10px;
       right: 10px;
       width: 300px;
-      background-color: #fff;
+      background-color: #000000;
       border-radius: 4px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.911);
       transition: all 0.3s ease;
       overflow: hidden;
     }
@@ -118,12 +163,12 @@
     }
 
     .chat-header {
-      background-color: #333;
+      background-color: #000000;
       padding: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: #fff;
+      color: #ffffff;
       cursor: pointer;
     }
 
@@ -135,7 +180,7 @@
     .chat-header button {
       border: none;
       background-color: transparent;
-      color: #fff;
+      color: #ffffff;
       font-size: 18px;
       cursor: pointer;
       outline: none;
@@ -152,13 +197,13 @@
     }
 
     .chat-message.user .message-content {
-      background-color: #e6f2ff;
+      background-color: #cbe4ff;
       color: #000;
     }
 
     .chat-message.ai .message-content {
-      background-color: #fff0f5;
-      color: #ff1493;
+      background-color: #fb86ad;
+      color: #000;
     }
 
     .message-content {
@@ -169,11 +214,82 @@
 
     .chat-input {
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #000000;
       border-top: none;
       border-radius: 0 0 4px 4px;
       width: 100%;
       box-sizing: border-box;
+    }
+
+    @media (max-width: 1060px) {
+      header {
+        padding: 10px;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+
+      footer {
+        padding: 20px 10px 60px;
+      }
+
+      .text-overlay {
+        top: 40%;
+      }
+
+      .chat-box {
+        width: calc(100vw - 20px);
+        right: 10px;
+        bottom: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .text-overlay h2 {
+        font-size: 40px;
+      }
+
+      .text-overlay p {
+        font-size: 16px;
+      }
+
+      footer p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 596px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      nav ul {
+        justify-content: center;
+        width: 100%;
+      }
+
+      nav ul li {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+
+    @media (max-width: 468px) {
+      nav ul li {
+        font-size: 12px; /* Reduce font size for smaller screens */
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
+      h1 {
+        font-size: 24px; /* Adjust the header font size */
+      }
     }
   </style>
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous"></script>
@@ -184,201 +300,172 @@
       <div class="header-left">
         <h1>Opti-<span>Biz</span></h1>
       </div>
-      <div class="header-middle">
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pricing.html">Plans and Pricing</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #fafafa;"></i></a></li>
-          </ul>
-        </nav>
-      </div>
-      <div></div> <!-- Empty div to adjust spacing -->
+      <nav>
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="pricing.html">Plans and Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #fafafa;"></i></a></li>
+        </ul>
+      </nav>
     </header>
 
     <section>
-      <h2>About</h2>
-      <p>Here at Opti-Biz, our goal is to optimise your business to reach its potential, whether you are already an existing business, or you are looking to start-up.</p>
+      <video autoplay loop muted>
+        <source src="C:\Users\user1\Documents\Practise websites\5091624-hd_1920_1080_24fps.mp4" type="video/mp4">
+      </video>
+      <div class="text-overlay">
+        <h2>About</h2>
+        <p>Here at Optibiz, our goal is to optimise your business and to reach its potential, whether you are an existing business, or looking to start your own, we're here to help.</p>
+      </div>
     </section>
 
     <footer>
-      <p>&copy; 2023 Opti-Biz Agency. All rights reserved. <a href="Website2.06 termsofservice.html">Terms of Service</a></p>
+      <p>&copy; 2023 Opti-Biz Agency. All rights reserved. <a href="termsofservice.html">Terms of Service</a></p>
     </footer>
 
     <div class="chat-box minimized" id="chatBox">
-  <div class="chat-header" id="chatHeader">
-    <h3>AI Chat Bot</h3>
-    <button id="minimizeButton">-</button>
-  </div>
-  <div class="chat-body" id="chatBody"></div>
-  <div class="chat-input-container">
-    <input type="text" id="chatInput" class="chat-input" placeholder="Type your message..." />
-    <button id="sendButton">Send</button>
-  </div>
-</div>
+      <div class="chat-header" id="chatHeader">
+        <h3>AI Chat Bot</h3>
+        <button id="minimizeButton">-</button>
+      </div>
+      <div class="chat-body" id="chatBody"></div>
+      <div class="chat-input-container">
+        <input type="text" id="chatInput" class="chat-input" placeholder="Type your message..." />
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
 
-<script>
-  const chatBox = document.getElementById('chatBox');
-  const chatHeader = document.getElementById('chatHeader');
-  const minimizeButton = document.getElementById('minimizeButton');
-  const chatBody = document.getElementById('chatBody');
-  const chatInput = document.getElementById('chatInput');
-  const sendButton = document.getElementById('sendButton');
+    <script>
+      const chatBox = document.getElementById('chatBox');
+      const chatHeader = document.getElementById('chatHeader');
+      const minimizeButton = document.getElementById('minimizeButton');
+      const chatBody = document.getElementById('chatBody');
+      const chatInput = document.getElementById('chatInput');
+      const sendButton = document.getElementById('sendButton');
 
-  // Function to toggle chat box between minimized and maximized state
-  function toggleChatBox() {
-    chatBox.classList.toggle('minimized');
-    minimizeButton.textContent = chatBox.classList.contains('minimized') ? '+' : '-';
-  }
-
-  // Function to add user message to chat box
-  function addUserMessage(message) {
-    const userMessage = document.createElement('div');
-    userMessage.classList.add('chat-message', 'user');
-    const messageContent = document.createElement('div');
-    messageContent.classList.add('message-content');
-    messageContent.textContent = message;
-    userMessage.appendChild(messageContent);
-    chatBody.appendChild(userMessage);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // Function to generate a random typing delay
-  function generateTypingDelay() {
-    return Math.floor(Math.random() * 8000) + 200; // Adjust the range of the random delay as needed
-  }
-
-  // Function to add AI message to chat box with a delay
-  async function addAIMessageWithDelay(message) {
-    const delay = generateTypingDelay();
-    await new Promise(resolve => setTimeout(resolve, delay));
-    addAIMessage(message);
-  }
-
-  // Function to add AI message to chat box
-  function addAIMessage(message) {
-    const aiMessage = document.createElement('div');
-    aiMessage.classList.add('chat-message', 'ai');
-    const messageContent = document.createElement('div');
-    messageContent.classList.add('message-content');
-    messageContent.textContent = message;
-    aiMessage.appendChild(messageContent);
-    chatBody.appendChild(aiMessage);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // Function to store chat history in session storage
-  function storeChatHistory() {
-    const chatMessages = chatBody.innerHTML;
-    sessionStorage.setItem('chatHistory', chatMessages);
-  }
-
-  // Function to load chat history from session storage
-  function loadChatHistory() {
-    const chatMessages = sessionStorage.getItem('chatHistory');
-    if (chatMessages) {
-      chatBody.innerHTML = chatMessages;
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-  }
-
-  // Function to show typing indicator
-  function showTypingIndicator() {
-    const typingIndicator = document.createElement('div');
-    typingIndicator.classList.add('chat-message', 'ai', 'typing-indicator');
-    typingIndicator.innerHTML = 'Typing...';
-    chatBody.appendChild(typingIndicator);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // Function to hide typing indicator
-  function hideTypingIndicator() {
-    const typingIndicator = chatBody.querySelector('.typing-indicator');
-    if (typingIndicator) {
-      typingIndicator.remove();
-    }
-  }
-
-  // Function to generate AI response
-  function generateAIResponse(userMessage) {
-    // Filter for greetings
-    const lowerCaseMessage = userMessage.toLowerCase();
-    const greetings = ['hi', 'hello'];
-    const isGreeting = greetings.some(greeting => lowerCaseMessage.includes(greeting));
-
-    if (isGreeting) {
-      // Initial greeting response
-      setTimeout(() => {
-        hideTypingIndicator();
-        const response = 'Hello, How may i assist you?';
-        addAIMessage(response);
-        storeChatHistory();
-      }, generateTypingDelay());
-    } else {
-      // Read data from Excel file and find appropriate AI response
-
-      // Replace with your logic to read data from the Excel file
-      // and find the appropriate AI response based on user input
-
-      // Example:
-      const userInput = userMessage.toLowerCase();
-      const excelData = [
-        { userPhrase: 'how are you', aiResponse: 'I am doing well, thank you! How are you?' },
-        { userPhrase: 'help', aiResponse: 'Of course! Could you provide some information as to what you are looking for?' },
-        // Add more data from the Excel file
-      ];
-
-      const matchedData = excelData.find(data => userInput.includes(data.userPhrase));
-      if (matchedData) {
-        showTypingIndicator();
-        setTimeout(() => {
-          hideTypingIndicator();
-          const response = matchedData.aiResponse;
-          addAIMessage(response);
-          storeChatHistory();
-        }, generateTypingDelay());
-      } else {
-        // Default response if no match found
-        showTypingIndicator();
-        setTimeout(() => {
-          hideTypingIndicator();
-          const response = 'I apologize, but I am unable to assist with that at the moment.';
-          addAIMessage(response);
-          storeChatHistory();
-        }, generateTypingDelay());
+      function toggleChatBox() {
+        chatBox.classList.toggle('minimized');
+        minimizeButton.textContent = chatBox.classList.contains('minimized') ? '+' : '-';
       }
-    }
-  }
 
-  // Event listener for minimize button
-  minimizeButton.addEventListener('click', toggleChatBox);
+      function addUserMessage(message) {
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('chat-message', 'user');
+        const messageContent = document.createElement('div');
+        messageContent.classList.add('message-content');
+        messageContent.textContent = message;
+        userMessage.appendChild(messageContent);
+        chatBody.appendChild(userMessage);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
 
-  // Event listener for send button
-  sendButton.addEventListener('click', function () {
-    const userMessage = chatInput.value.trim();
-    if (userMessage !== '') {
-      addUserMessage(userMessage);
-      chatInput.value = '';
+      function addAIMessage(message) {
+        const aiMessage = document.createElement('div');
+        aiMessage.classList.add('chat-message', 'ai');
+        const messageContent = document.createElement('div');
+        messageContent.classList.add('message-content');
+        messageContent.textContent = message;
+        aiMessage.appendChild(messageContent);
+        chatBody.appendChild(aiMessage);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
 
-      // Generate AI response
-      generateAIResponse(userMessage);
-    }
-  });
+      function storeChatHistory() {
+        const chatMessages = chatBody.innerHTML;
+        sessionStorage.setItem('chatHistory', chatMessages);
+      }
 
-  // Event listener for Enter key press in chat input
-  chatInput.addEventListener('keypress', function (event) {
-    if (event.keyCode === 13 || event.which === 13) {
-      event.preventDefault();
-      sendButton.click();
-    }
-  });
+      function loadChatHistory() {
+        const chatMessages = sessionStorage.getItem('chatHistory');
+        if (chatMessages) {
+          chatBody.innerHTML = chatMessages;
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }
+      }
 
-  // Load chat history when the page is loaded
-  document.addEventListener('DOMContentLoaded', loadChatHistory);
-</script>
+      function showTypingIndicator() {
+        const typingIndicator = document.createElement('div');
+        typingIndicator.classList.add('chat-message', 'ai', 'typing-indicator');
+        typingIndicator.innerHTML = 'Typing...';
+        chatBody.appendChild(typingIndicator);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
 
+      function hideTypingIndicator() {
+        const typingIndicator = chatBody.querySelector('.typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      function generateAIResponse(userMessage) {
+        const lowerCaseMessage = userMessage.toLowerCase();
+        const greetings = ['hi', 'hello'];
+        const isGreeting = greetings.some(greeting => lowerCaseMessage.includes(greeting));
+
+        if (isGreeting) {
+          setTimeout(() => {
+            hideTypingIndicator();
+            const response = 'Hello, How may I assist you?';
+            addAIMessage(response);
+            storeChatHistory();
+          }, generateTypingDelay());
+        } else {
+          const userInput = userMessage.toLowerCase();
+          const excelData = [
+            { userPhrase: 'how are you', aiResponse: 'I am doing well, thank you!' },
+            { userPhrase: 'help', aiResponse: 'Of course! Could you provide some information as to what you are looking for?' },
+            { userPhrase: 'plan', aiResponse: 'What important factors are you looking for in a plan?' },
+            { userPhrase: 'basic', aiResponse: 'Are you looking for the Basic Plan?' }
+          ];
+
+          const matchedData = excelData.find(data => userInput.includes(data.userPhrase));
+          if (matchedData) {
+            showTypingIndicator();
+            setTimeout(() => {
+              hideTypingIndicator();
+              const response = matchedData.aiResponse;
+              addAIMessage(response);
+              storeChatHistory();
+            }, generateTypingDelay());
+          } else {
+            showTypingIndicator();
+            setTimeout(() => {
+              hideTypingIndicator();
+              const response = "What do you mean? Sorry, I don't understand.";
+              addAIMessage(response);
+              storeChatHistory();
+            }, generateTypingDelay());
+          }
+        }
+      }
+
+      function generateTypingDelay() {
+        return Math.floor(Math.random() * 1000) + 500;
+      }
+
+      minimizeButton.addEventListener('click', toggleChatBox);
+
+      sendButton.addEventListener('click', function () {
+        const userMessage = chatInput.value.trim();
+        if (userMessage !== '') {
+          addUserMessage(userMessage);
+          chatInput.value = '';
+          generateAIResponse(userMessage);
+        }
+      });
+
+      chatInput.addEventListener('keypress', function (event) {
+        if (event.keyCode === 13 || event.which === 13) {
+          event.preventDefault();
+          sendButton.click();
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', loadChatHistory);
+    </script>
   </div>
-  <script src="chat.js"></script>
 </body>
 </html>
