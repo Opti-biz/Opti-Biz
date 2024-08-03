@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Opti-Biz</title>
+  <title>OptiBiz</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,13 +13,13 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: #ffffff;
+      color: #ffffff; 
       overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     .container {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -27,15 +27,13 @@
     }
 
     header {
-      background-color: #000000;
+      background-color:#000000;
       padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #ffffff;
       flex-wrap: wrap; /* Allow wrapping */
-      border-bottom: none; /* Remove any border */
-      box-shadow: none; /* Ensure no box shadow */
     }
 
     .header-left {
@@ -79,32 +77,68 @@
       text-decoration: none;
     }
 
-    section {
+    .hero-section {
       position: relative;
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden; /* Ensure video doesn't overflow */
+      height: 100vh; /* Full height for hero section */
+      width: 100%;
+      overflow: hidden;
     }
 
-    video {
+    .hero-section video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      z-index: 0; /* Place behind the text */
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ffffff;
+      z-index: 1 ;
+    }
+
+    .text-overlay h2 {
+      font-size: 55px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .text-overlay p {
+      font-size: 20px;
+    }
+
+    .content-section {
+      min-height: 50vh;
+      padding: 40px;
+      background-color: #000000;
+      text-align: center;
+      z-index: 0;
+    }
+
+    .image-section {
+      min-height: 50vh;
+      background-color: #000000;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
     }
 
     footer {
-      background-color: #000000;
+      background-color: #0e0e0e;
       color: #ffffff;
       padding: 20px 10px;
       text-align: center;
-      position: relative;
       border-top: none; /* Remove any border */
       box-shadow: none; /* Ensure no box shadow */
     }
@@ -116,28 +150,6 @@
     footer a {
       color: #ffffff;
       text-decoration: underline;
-    }
-
-    .text-overlay {
-      position: absolute;
-      top: 25%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #ffffff;
-      z-index: 1;
-    }
-
-    .text-overlay h2 {
-      font-size: 55px;
-      margin-bottom: 10px;
-      color: #ffffff;
-      margin-top: 10px;
-    }
-
-    .text-overlay p {
-      font-size: 20px;
-      color: #ffffff;
     }
 
     /* Chat Box Styles */
@@ -259,7 +271,7 @@
       }
     }
 
-    @media (max-width: 596px) {
+    @media (max-width: 587px) {
       header {
         flex-direction: column;
         align-items: center;
@@ -275,22 +287,93 @@
       }
 
       nav ul li {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 6px;
+        margin-right: 6px;
       }
     }
 
-    @media (max-width: 468px) {
+    
+    :root {
+      --font-size: clamp(12px, 2vw, 18px);
+    }
+
+    nav ul li {
+      font-size: var(--font-size);
+    }
+
+    @media (max-width: 500px) {
       nav ul li {
-        font-size: 12px; /* Reduce font size for smaller screens */
-        margin-left: 8px;
-        margin-right: 8px;
-      }
-
-      h1 {
-        font-size: 24px; /* Adjust the header font size */
+        font-size: clamp(10px, 1.5vw, 14px);
       }
     }
+
+    @media (min-width: 340px) {
+        nav ul li {
+          font-size: clamp(16px, 2vw, 20px);
+        }
+    }
+
+    @media (max-width: 430px) {
+        nav ul li {
+            font-size: clamp(14px, 2.0vw, 15px);
+        }
+    }
+
+    @media (max-width: 380px) {
+        nav ul li {
+            font-size: clamp(13px, 2.0vw, 14px);
+        }
+    }
+
+    @media (max-width: 363px) {
+        nav ul li {
+            font-size: clamp(12px, 2.0vw, 13px);
+        }
+    }
+
+
+
+    @media (max-width: 347px) {
+        nav ul li {
+            font-size: clamp(11px, 2.0vw, 12px);
+        }
+    }
+  
+
+
+    .content-section {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.text-container {
+  max-width: 550px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center; /* Align text inside container to the left */
+}
+
+@media only screen and (min-width: 506px) {
+  .content-section {
+    padding: 40px;
+  }
+}
+
+   
+
+
+
+
+
+ 
+
+
+
+   
+
   </style>
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous"></script>
 </head>
@@ -303,26 +386,45 @@
       <nav>
         <ul>
           <li><a href="about.html">About</a></li>
-          <li><a href="pricing.html">Plans</a></li>
+          <li><a href="pricing.html">Course</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #fafafa;"></i></a></li>
         </ul>
       </nav>
     </header>
 
-    <section>
+    <section class="hero-section">
       <video autoplay loop muted>
-        <source src="C:\Users\user1\Documents\Practise websites\5091624-hd_1920_1080_24fps.mp4" type="video/mp4">
+        <source src="geo-world.mp4" type="video/mp4"> type="video/mp4"> <!-- Update path accordingly -->
+        Your browser does not support the video tag.
       </video>
       <div class="text-overlay">
-        <h2>Welcome to Opti-Biz</h2>
+        <h2>Welcome to Opti<span>Biz</span></h2>
         <p>Your solution to business optimization</p>
       </div>
     </section>
 
+
+    <section class="content-section">
+      <div class="text-container">
+      <h2>Our Mission</h2>
+      <p>Our Mission here at OptiBiz is to tailor to small businesses and start-ups. </p>
+      <p> We beilieve we can offer affordable web-development services at a price in which aspiring entrepreneurs, students and small business owners are able to access, at a fraction of the price compared to alternate methods.</p>
+      <p> With our Web Development Toolkit, you will have a range of templates to choose from, from basic websites to multi-page applications. Unlock your creativity and build stunning online experiences effortlessly! </p>
+      <p> We also offer another option, where we build the website for you instead. If you're too busy to build it yourself, we can offer a helping hand.</p>
+     </div>
+    </section>
+
+    <section class="image-section">
+      <h2>Course Overview</h2>
+      <img src="https://via.placeholder.com/800x400" alt="Placeholder Image">
+      <p>Take a look at some of our successful projects.</p>
+    </section>
+
     <footer>
-      <p>&copy; 2024 Opti-Biz Agency. All rights reserved. <a href="termsofservice.html">Terms of Service</a></p>
+      <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
     </footer>
 
     <div class="chat-box minimized" id="chatBox">
@@ -345,126 +447,44 @@
       const chatInput = document.getElementById('chatInput');
       const sendButton = document.getElementById('sendButton');
 
-      function toggleChatBox() {
+      chatHeader.addEventListener('click', () => {
         chatBox.classList.toggle('minimized');
-        minimizeButton.textContent = chatBox.classList.contains('minimized') ? '+' : '-';
-      }
+      });
 
-      function addUserMessage(message) {
-        const userMessage = document.createElement('div');
-        userMessage.classList.add('chat-message', 'user');
-        const messageContent = document.createElement('div');
-        messageContent.classList.add('message-content');
-        messageContent.textContent = message;
-        userMessage.appendChild(messageContent);
-        chatBody.appendChild(userMessage);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-
-      function addAIMessage(message) {
-        const aiMessage = document.createElement('div');
-        aiMessage.classList.add('chat-message', 'ai');
-        const messageContent = document.createElement('div');
-        messageContent.classList.add('message-content');
-        messageContent.textContent = message;
-        aiMessage.appendChild(messageContent);
-        chatBody.appendChild(aiMessage);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-
-      function storeChatHistory() {
-        const chatMessages = chatBody.innerHTML;
-        sessionStorage.setItem('chatHistory', chatMessages);
-      }
-
-      function loadChatHistory() {
-        const chatMessages = sessionStorage.getItem('chatHistory');
-        if (chatMessages) {
-          chatBody.innerHTML = chatMessages;
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }
-      }
-
-      function showTypingIndicator() {
-        const typingIndicator = document.createElement('div');
-        typingIndicator.classList.add('chat-message', 'ai', 'typing-indicator');
-        typingIndicator.innerHTML = 'Typing...';
-        chatBody.appendChild(typingIndicator);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-
-      function hideTypingIndicator() {
-        const typingIndicator = chatBody.querySelector('.typing-indicator');
-        if (typingIndicator) {
-          typingIndicator.remove();
-        }
-      }
-
-      function generateAIResponse(userMessage) {
-        const lowerCaseMessage = userMessage.toLowerCase();
-        const greetings = ['hi', 'hello'];
-        const isGreeting = greetings.some(greeting => lowerCaseMessage.includes(greeting));
-
-        if (isGreeting) {
-          setTimeout(() => {
-            hideTypingIndicator();
-            const response = 'Hello, How may I assist you?';
-            addAIMessage(response);
-            storeChatHistory();
-          }, generateTypingDelay());
-        } else {
-          const userInput = userMessage.toLowerCase();
-          const excelData = [
-            { userPhrase: 'how are you', aiResponse: 'I am doing well, thank you!' },
-            { userPhrase: 'help', aiResponse: 'Of course! Could you provide some information as to what you are looking for?' },
-            { userPhrase: 'plan', aiResponse: 'What important factors are you looking for in a plan?' },
-            { userPhrase: 'basic', aiResponse: 'Are you looking for the Basic Plan?' }
-          ];
-
-          const matchedData = excelData.find(data => userInput.includes(data.userPhrase));
-          if (matchedData) {
-            showTypingIndicator();
-            setTimeout(() => {
-              hideTypingIndicator();
-              const response = matchedData.aiResponse;
-              addAIMessage(response);
-              storeChatHistory();
-            }, generateTypingDelay());
-          } else {
-            showTypingIndicator();
-            setTimeout(() => {
-              hideTypingIndicator();
-              const response = "What do you mean? Sorry, I don't understand.";
-              addAIMessage(response);
-              storeChatHistory();
-            }, generateTypingDelay());
-          }
-        }
-      }
-
-      function generateTypingDelay() {
-        return Math.floor(Math.random() * 1000) + 500;
-      }
-
-      minimizeButton.addEventListener('click', toggleChatBox);
-
-      sendButton.addEventListener('click', function () {
-        const userMessage = chatInput.value.trim();
-        if (userMessage !== '') {
-          addUserMessage(userMessage);
+      sendButton.addEventListener('click', () => {
+        const message = chatInput.value.trim();
+        if (message !== '') {
+          displayMessage('user', message);
           chatInput.value = '';
-          generateAIResponse(userMessage);
+
+          setTimeout(() => {
+            displayMessage('ai', 'Hello! How can I assist you today?');
+          }, 1000);
         }
       });
 
-      chatInput.addEventListener('keypress', function (event) {
-        if (event.keyCode === 13 || event.which === 13) {
-          event.preventDefault();
+      chatInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
           sendButton.click();
         }
       });
 
-      document.addEventListener('DOMContentLoaded', loadChatHistory);
+      const video = document.querySelector('video');
+
+video.disablePictureInPicture = true;
+
+      function displayMessage(sender, message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', sender);
+        const contentElement = document.createElement('div');
+        contentElement.classList.add('message-content');
+        contentElement.textContent = message;
+        messageElement.appendChild(contentElement);
+        chatBody.appendChild(messageElement);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+
     </script>
   </div>
 </body>
