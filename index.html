@@ -377,28 +377,39 @@
   </style>
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
 
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     const video = document.querySelector('video');
 
     if (video) {
       video.disablePictureInPicture = true;
 
-      // Function to handle visibility change
+      // Function to handle visibility change and focus
       function handleVisibilityChange() {
-        if (document.hidden) {
-          video.pause();
-        } else {
-          video.play();
+        if (!document.hidden && video.paused) {
+          video.play().catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
         }
       }
 
-      // Event listener for visibility change
+      // Function to handle page focus
+      function handleFocus() {
+        if (video.paused) {
+          video.play().catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
+        }
+      }
+
+      // Event listeners
       document.addEventListener("visibilitychange", handleVisibilityChange);
+      window.addEventListener("focus", handleFocus);
 
       // Initial check
       handleVisibilityChange();
     }
   });
+
 
     
   </script>
