@@ -396,8 +396,8 @@
     </header>
 
     <section class="hero-section">
-      <video autoplay loop muted>
-        <source src="videos/freecompress-geo-world.mp4" type="video/mp4"> <!-- Update path accordingly -->
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src="geo-world.mp4" type="video/mp4"> <!-- Update path accordingly -->
         Your browser does not support the video tag.
       </video>
       <div class="text-overlay">
@@ -483,6 +483,9 @@ video.disablePictureInPicture = true;
         chatBody.appendChild(messageElement);
         chatBody.scrollTop = chatBody.scrollHeight;
       }
+
+      const video = document.querySelector('video');
+video.disablePictureInPicture = true;
 
 
     </script>
