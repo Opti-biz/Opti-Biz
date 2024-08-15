@@ -104,6 +104,23 @@ p {
       z-index: 0; /* Place behind the text */
     }
 
+
+   /* For photo A (main landscape image) */
+.hero-section{
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    background-image: url('photos/contactlandscape.jpg'); /* Set photo A as the background */
+    background-size: cover; /* Scale the image proportionally */
+    /* Add other styling as needed */
+}
+
+/* Media query for screens where height is greater than width */
+@media (orientation: portrait) {
+    .hero-section {
+        background-image: url('photos/contactportrait.jpg'); /* Switch to photo B */
+    }
+}
+
     .text-overlay {
       position: absolute;
       top: 50%;
