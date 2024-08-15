@@ -125,6 +125,33 @@ p {
       font-size: 20px;
     }
 
+
+	  
+.main-image {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* For photo B (alternative image) */
+.alternative-image {
+    display: none; /* Initially hidden */
+}
+
+/* Media query for screens with a width of 900px or less */
+@media (max-width: 900px) {
+    .main-image {
+        display: none; /* Hide photo A */
+    }
+    .alternative-image {
+        display: block; /* Show photo B */
+        width: 100%; /* Full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
+	  
+	  
     .content-section {
       min-height: 50vh;
       padding: 40px;
@@ -516,10 +543,8 @@ p {
     </header>
 
     <section class="hero-section">
-      <video autoplay loop muted playsinline disablePictureInPicture>
-        <source src="videos/.mp4" type="video/mp4"> <!-- Update path accordingly -->
-        Your browser does not support the video tag.
-      </video>
+      <img src="photos/contactlandscape.jpg" alt="Photo A" class="main-image">
+      <img src="photos/contactportrait.jpg" alt="Photo B" class="alternative-image">
       <div class="text-overlay">
         <h2></h2>
         <p></p>
