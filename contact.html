@@ -126,7 +126,7 @@ p {
     }
 
 
-	  
+	/* For photo A (main landscape image) */
 .main-image {
     width: 100%; /* Full width */
     height: auto; /* Maintain aspect ratio */
@@ -137,8 +137,8 @@ p {
     display: none; /* Initially hidden */
 }
 
-/* Media query for screens with a width of 900px or less */
-@media (max-width: 900px) {
+/* Media query for screens where height is greater than width */
+@media (orientation: portrait) {
     .main-image {
         display: none; /* Hide photo A */
     }
@@ -147,7 +147,13 @@ p {
         width: 100%; /* Full width */
         height: auto; /* Maintain aspect ratio */
     }
-}
+}  
+
+
+
+
+
+	  
 
 
 	  
