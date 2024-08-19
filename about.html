@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,6 +169,34 @@ p {
     }
 
  
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #ffffff;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00aaff;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     @media (max-width: 1060px) {
       header {
@@ -285,7 +314,7 @@ p {
       background-color: #011727;
       text-align: center;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 20px;
       border: none;
       cursor: pointer;
       margin-top: 10px; /* Add space above the button */
@@ -417,37 +446,22 @@ p {
 }
 
 
-.social-section {
-  background-color: #000000; /* or any other background color you prefer */
-  padding: 40px;
-  text-align: center;
-}
-
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.social-buttons i {
-  font-size: 28px; /* adjust to your desired size */
-}
-
-.facebook-button, .instagram-button {
-  background-color: #000000; /* or any other background color you prefer */
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.facebook-button:hover, .instagram-button:hover {
-  background-color: #000000; /* or any other hover background color you prefer */
-}
 
 
 
+@media (max-width: 2000px) {
+      .text-overlay h2 {
+        font-size: 40px;
+      }
+
+      .text-overlay p {
+        font-size: 16px;
+      }
+
+      footer p {
+        font-size: 14px;
+      }
+    }
 
  
 
@@ -561,19 +575,6 @@ p {
       </div>
     </section>
 
-    <section class="social-section">
-        <div class="text-container">
-          <h2>Follow us on social media!</h2>
-          <div class="social-buttons">
-            <a href="#" class="facebook-button">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="instagram-button">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-      </section>
 
 
     <footer>
