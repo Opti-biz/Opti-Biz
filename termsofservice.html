@@ -1,7 +1,15 @@
+
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Web-Development Agency, - Optimise Your Business Today, with your very Own Website - 100% Ownership.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Website, Web-Development, OptiBiz, Optibiz, optibiz, optibiz.agency, Optibiz.agency, OptiBiz.agency">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OptiBiz | Optimise your Business</title>
   <style>
     * {
       box-sizing: border-box;
@@ -10,37 +18,34 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      color: #000; /* Set the desired text color */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+      color: #ffffff; 
+      overflow-x: hidden; /* Prevent horizontal scroll */
+      transform-origin: 0 0;
     }
 
     .container {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: #f2f2f2;
+      background-color: #030303;
     }
 
     header {
-      background-color: #333;
-      padding: 10px;
+      background-color:#000000;
+      padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #fff;
+      color: #ffffff;
+      flex-wrap: wrap; /* Allow wrapping */
     }
 
     .header-left {
       display: flex;
       align-items: center;
-    }
-
-    .header-middle {
-      display: flex;
-      align-items: center;
-      width: 100%;
     }
 
     h1 {
@@ -54,8 +59,16 @@
       margin-left: 5px;
     }
 
+
+
+p {
+  font-size: 1.1em; /* increase the font size for paragraphs */
+}
+
     nav {
-      margin-left: auto;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap; /* Allow wrapping */
     }
 
     nav ul {
@@ -63,345 +76,531 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
+      flex-wrap: wrap; /* Allow wrapping */
     }
 
     nav ul li {
-      margin-right: 10px;
+      margin-left: 20px;
     }
 
     nav ul li a {
       display: block;
       padding: 5px;
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
     }
 
-    section {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-image: url(""); /* Replace "path/to/your/image.jpg" with the correct image path */
-      background-size: cover;
-      background-position: center;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
-    
-    /* Chat Box Styles */
-    
-    .chat-box {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      width: 300px;
-      background-color: #fff;
-      border-radius: 4px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
+    .hero-section {
+      position: relative;
+      height: 100vh; /* Full height for hero section */
+      width: 100%;
       overflow: hidden;
     }
 
-    .chat-box.minimized {
-      height: 40px;
-    }
-
-    .chat-box.hidden {
-      display: none;
-    }
-
-    .chat-header {
-      background-color: #333;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .chat-header h3 {
-      margin: 0;
-      font-size: 16px;
-    }
-
-    .chat-header button {
-      border: none;
-      background-color: transparent;
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .chat-body {
-      max-height: 200px;
-      overflow-y: auto;
-      padding: 10px;
-    }
-
-    .chat-message {
-      margin-bottom: 10px;
-    }
-
-    .chat-message.user .message-content {
-      background-color: #e6f2ff;
-      color: #000;
-    }
-
-    .chat-message.ai .message-content {
-      background-color: #fff0f5;
-      color: #ff1493;
-    }
-
-    .message-content {
-      padding: 8px 12px;
-      border-radius: 4px;
-      word-wrap: break-word;
-    }
-
-    .chat-input {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-top: none;
-      border-radius: 0 0 4px 4px;
+    .hero-section video {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      box-sizing: border-box;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0; /* Place behind the text */
     }
+
+
+   /* For photo A (main landscape image) */
+.hero-section{
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    background-image: url('photos/landscape.jpg'); /* Set photo A as the background */
+    background-size: cover; /* Scale the image proportionally */
+    /* Add other styling as needed */
+}
+
+/* Media query for screens where height is greater than width */
+@media (orientation: portrait) {
+    .hero-section {
+        background-image: url('photos/portrait.jpg'); /* Switch to photo B */
+    }
+}
+
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ffffff;
+      z-index: 1 ;
+    }
+
+    .text-overlay h2 {
+      font-size: 55px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      color: #ffffff;
+    }
+
+    .text-overlay p {
+      font-size: 20px;
+    }
+
+
+	/* For photo A (main landscape image) */
+.main-image {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* For photo B (alternative image) */
+.alternative-image {
+    display: none; /* Initially hidden */
+}
+
+/* Media query for screens where height is greater than width */
+@media (orientation: portrait) {
+    .main-image {
+        display: none; /* Hide photo A */
+    }
+    .alternative-image {
+        display: block; /* Show photo B */
+        width: 100%; /* Full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}  
+
+
+
+
+
+	  
+
+
+	  
+	  
+    .content-section {
+      min-height: 50vh;
+      padding: 40px;
+      background-color: #000000;
+      text-align: center;
+      z-index: 0;
+      color: #ffffff;
+    }
+
+    .image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    footer {
+      background-color: #011727;
+      color: #ffffff;
+      padding: 20px 10px;
+      text-align: center;
+      border-top: none; /* Remove any border */
+      box-shadow: none; /* Ensure no box shadow */
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+ .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #ffffff;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00aaff;
+    }
+
+
+
+	  
+
+    @media (max-width: 1060px) {
+      header {
+        padding: 10px;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+
+     
+
+      .text-overlay {
+        top: 40%;
+      }
+
+    
+    }
+
+    @media (max-width: 768px) {
+      .text-overlay h2 {
+        font-size: 40px;
+      }
+
+      .text-overlay p {
+        font-size: 16px;
+      }
+
+      footer p {
+        font-size: 14px;
+      }
+    }
+
+    @media (Max-width: 398px) {
+       footer p {
+         font-size: 12px;
+      }
+    }
+
+
+
+    @media (max-width: 587px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      nav ul {
+        justify-content: center;
+        width: 100%;
+      }
+
+      nav ul li {
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+    }
+
+    
+    :root {
+      --font-size: clamp(12px, 2vw, 18px);
+    }
+
+    nav ul li {
+      font-size: var(--font-size);
+    }
+
+    @media (max-width: 500px) {
+      nav ul li {
+        font-size: clamp(10px, 1.5vw, 14px);
+      }
+    }
+
+    @media (min-width: 340px) {
+        nav ul li {
+          font-size: clamp(16px, 2vw, 20px);
+        }
+    }
+
+    @media (max-width: 430px) {
+        nav ul li {
+            font-size: clamp(14px, 2.0vw, 15px);
+        }
+    }
+
+    @media (max-width: 380px) {
+        nav ul li {
+            font-size: clamp(13px, 2.0vw, 14px);
+        }
+    }
+
+    @media (max-width: 363px) {
+        nav ul li {
+            font-size: clamp(12px, 2.0vw, 13px);
+        }
+    }
+
+
+
+    @media (max-width: 347px) {
+        nav ul li {
+            font-size: clamp(11px, 2.0vw, 12px);
+        }
+    }
+  
+ 
+
+    .content-section {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #000000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.text-container h2 {
+  font-size: 16px; /* initial font size */
+  line-height: 1.2;
+  color: rgb(255, 255, 255);
+}
+
+@media only screen and (min-width: 506px) {
+  .content-section {
+    padding: 40px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .text-container h2 {
+    font-size: 38px; /* larger font size on larger screens */
+  }
+}
+
+@media (min-width: 340px) {
+  .text-container h2 {
+    font-size: 24px; /* even larger font size on very large screens */
+  }
+}
+
+.text-container p {
+  font-size: 15px; /* initial font size */
+}
+
+@media (min-width: 450px) {
+  .text-container p {
+    font-size: 18px; /* larger font size on larger screens */
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .text-container p {
+    font-size: 22px; /* larger font size on larger screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .text-container p {
+    font-size: 22px; /* even larger font size on very large screens */
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .image-section h2 {
+    font-size: 22px; /* even larger font size on very large screens */
+  }
+}
+
+@media (min-width: 400px) {
+  .image-section h2 {
+    font-size: 22px; /* even larger font size on very large screens */
+  }
+}
+
+.image-section h2 {
+  font-size: 24px; /* initial font size */
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .image-section h2 {
+    font-size: 30px; /* larger font size on larger screens */
+  }
+}
+
+
+.image-section video {
+  width: 100%;
+  height: 50vh; /* initial height */
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.image-section video {
+  width: 100%;
+  height: 300px; /* adjust the height according to your video's aspect ratio */
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .image-section video {
+    height: 60vh; /* taller on larger screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .image-section video {
+    height: 70vh; /* even taller on very large screens */
+  }
+}
+
+
+@media (max-width: 2000px) {
+      .text-overlay h2 {
+        font-size: 40px;
+      }
+
+      .text-overlay p {
+        font-size: 16px;
+      }
+
+      footer p {
+        font-size: 14px;
+      }
+    }
+
+ @media (max-width: 440px) {
+  footer p {
+    font-size: 8px;
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 440px) {
+	footer p {
+         font-size: 8px;
+      }
+    }
+
+
+    @media (min-width: 720px) {
+  .text-container ol {
+    font-size: 18px;
+  }
+}
+ 
+
   </style>
-  <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const video = document.querySelector('video');
+
+    if (video) {
+      video.disablePictureInPicture = true;
+
+      // Function to handle visibility change and focus
+      function handleVisibilityChange() {
+        if (!document.hidden && video.paused) {
+          video.play().catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
+        }
+      }
+
+      // Function to handle page focus
+      function handleFocus() {
+        if (video.paused) {
+          video.play().catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
+        }
+      }
+
+      // Event listeners
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+      window.addEventListener("focus", handleFocus);
+
+      // Initial check
+      handleVisibilityChange();
+    }
+  });
+
+
+
+
+
+    
+  </script>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="header-left">
-        <h1>Opti-<span>Biz</span></h1>
+        <h1>Opti<span>Biz</span></h1>
       </div>
-      <div class="header-middle">
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-	    <li><a href="about.html">About</a></li>
-            <li><a href="pricing.html">Plans and Pricing</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #fafafa;"></i></a></li>
-          </ul>
-        </nav>
-      </div>
-      <div></div> <!-- Empty div to adjust spacing -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+	  <li><a href="about.html">About</a></li>
+          <li><a href="course.html">Course</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #fafafa;"></i></a></li>
+        </ul>
+      </nav>
     </header>
 
-    <section>
-      <h2>Terms of Service</h2>
-      <p>These terms and conditions govern the use of services provided by Opti-Biz to the client. By engaging in business with Opti-Biz, the Client agrees to be bound by the terms and conditions set forth below:
-
-Services Provided: Opti-Biz offers various packages priced at various prices, which includes website production and domain name registration. Additional services may be added upon request, or depending on plan, subject to separate agreement or proposal. If the client already has a domain name, 5% will be reimbursed, monthly or in full depending on payment method.
-
-Payment and Billing: The Client agrees to pay the agreed-upon fees for the services provided by Opti-Biz. Late payments may incur additional charges or result in a temporary suspension of services.
-
-Intellectual Property: Opti-Biz retains all intellectual property rights associated with any designs, content, or materials created for the Client, unless otherwise specified in writing. The Client may use the delivered materials solely for the purposes intended and as agreed upon.
-
-Confidentiality: Opti-Biz agrees to keep confidential any proprietary or sensitive information disclosed by the Client. The Client acknowledges that Opti-Biz may disclose the Client's information to its employees or contractors on a need-to-know basis for the purpose of fulfilling the agreed-upon services.
-
-Right to Make Changes: Opti-Biz reserves the right to make changes to this Agreement, including but not limited to pricing, services, and terms. Any changes will be communicated to the Client in writing with reasonable notice. The Client has the right to terminate the agreement within 30 days of receiving the notice if the changes are unacceptable.
-
-No Cancellation: Once the agreement is signed or services have commenced, cancellation is not permitted. The Client is obligated to fulfil the minimum term of 12 months specified in this Agreement. If the client wishes to cancel their plan early, they can activate a cancellation clause, but only by paying out the amount stated by Opti-Biz (Will either equate to amount left to pay, or potentially less based upon revision by Opti-Biz)
-
-Term of Agreement: This Agreement shall have a minimum term of 12 months, starting from the date of signing or commencement of services, whichever occurs earlier.
-
-Termination: Either party may terminate this Agreement with written notice if the other party materially breaches any term or condition of this Agreement. Termination does not relieve the Client of any outstanding payment obligations.
-
-Limitation of Liability: Opti-Biz shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from the use or inability to use the services provided, even if advised of the possibility of such damages. The total liability of Opti-Biz, regardless of the cause of action, shall be limited to the fees paid by the Client during the term of this Agreement.
-By engaging with Opti-Biz and using its services, the Client acknowledges and agrees to abide by these terms and conditions.
-</p>
+    <section class="hero-section">
+      <div class="text-overlay">
+        <h2></h2>
+        <p></p>
+      </div>
     </section>
 
+
+    <section class="content-section">
+      <div class="text-container">
+      <h2>Terms of Service</h2>
+      style="text-align: center; padding: 10px 0;">
+      <p>Tos here:</p>  
+     </div>
+    </section>
+
+   
+
+
     <footer>
-      <p>&copy; 2023 Opti-Biz Agency. All rights reserved. <a href="termsofservice.html">Terms of Service</a></p>
+      <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
+        <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+        <a href="https://x.com" target="_blank" class="fab fa-x-twitter"></a> <!-- This assumes FontAwesome supports this class -->
+        <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
+      </div>
     </footer>
-
-    <div class="chat-box minimized" id="chatBox">
-  <div class="chat-header" id="chatHeader">
-    <h3>AI Chat Bot</h3>
-    <button id="minimizeButton">-</button>
   </div>
-  <div class="chat-body" id="chatBody"></div>
-  <div class="chat-input-container">
-    <input type="text" id="chatInput" class="chat-input" placeholder="Type your message..." />
-    <button id="sendButton">Send</button>
-  </div>
-</div>
-
-<script>
-  const chatBox = document.getElementById('chatBox');
-  const chatHeader = document.getElementById('chatHeader');
-  const minimizeButton = document.getElementById('minimizeButton');
-  const chatBody = document.getElementById('chatBody');
-  const chatInput = document.getElementById('chatInput');
-  const sendButton = document.getElementById('sendButton');
-
-  // Function to toggle chat box between minimized and maximized state
-  function toggleChatBox() {
-    chatBox.classList.toggle('minimized');
-    minimizeButton.textContent = chatBox.classList.contains('minimized') ? '+' : '-';
-  }
-
-  // Function to add user message to chat box
-  function addUserMessage(message) {
-    const userMessage = document.createElement('div');
-    userMessage.classList.add('chat-message', 'user');
-    const messageContent = document.createElement('div');
-    messageContent.classList.add('message-content');
-    messageContent.textContent = message;
-    userMessage.appendChild(messageContent);
-    chatBody.appendChild(userMessage);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // Function to generate a random typing delay
-  function generateTypingDelay() {
-    return Math.floor(Math.random() * 8000) + 200; // Adjust the range of the random delay as needed
-  }
-
-  // Function to add AI message to chat box with a delay
-  async function addAIMessageWithDelay(message) {
-    const delay = generateTypingDelay();
-    await new Promise(resolve => setTimeout(resolve, delay));
-    addAIMessage(message);
-  }
-
-  // Function to add AI message to chat box
-  function addAIMessage(message) {
-    const aiMessage = document.createElement('div');
-    aiMessage.classList.add('chat-message', 'ai');
-    const messageContent = document.createElement('div');
-    messageContent.classList.add('message-content');
-    messageContent.textContent = message;
-    aiMessage.appendChild(messageContent);
-    chatBody.appendChild(aiMessage);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // Function to store chat history in session storage
-  function storeChatHistory() {
-    const chatMessages = chatBody.innerHTML;
-    sessionStorage.setItem('chatHistory', chatMessages);
-  }
-
-  // Function to load chat history from session storage
-  function loadChatHistory() {
-    const chatMessages = sessionStorage.getItem('chatHistory');
-    if (chatMessages) {
-      chatBody.innerHTML = chatMessages;
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-  }
-
-  // Function to show typing indicator
-  function showTypingIndicator() {
-    const typingIndicator = document.createElement('div');
-    typingIndicator.classList.add('chat-message', 'ai', 'typing-indicator');
-    typingIndicator.innerHTML = 'Typing...';
-    chatBody.appendChild(typingIndicator);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // Function to hide typing indicator
-  function hideTypingIndicator() {
-    const typingIndicator = chatBody.querySelector('.typing-indicator');
-    if (typingIndicator) {
-      typingIndicator.remove();
-    }
-  }
-
-  // Function to generate AI response
-  function generateAIResponse(userMessage) {
-    // Filter for greetings
-    const lowerCaseMessage = userMessage.toLowerCase();
-    const greetings = ['hi', 'hello'];
-    const isGreeting = greetings.some(greeting => lowerCaseMessage.includes(greeting));
-
-    if (isGreeting) {
-      // Initial greeting response
-      setTimeout(() => {
-        hideTypingIndicator();
-        const response = 'Hello, How may i assist you?';
-        addAIMessage(response);
-        storeChatHistory();
-      }, generateTypingDelay());
-    } else {
-      // Read data from Excel file and find appropriate AI response
-
-      // Replace with your logic to read data from the Excel file
-      // and find the appropriate AI response based on user input
-
-      // Example:
-      const userInput = userMessage.toLowerCase();
-      const excelData = [
-        { userPhrase: 'how are you', aiResponse: 'I am doing well, thank you! How are you?' },
-        { userPhrase: 'help', aiResponse: 'Of course! Could you provide some information as to what you are looking for?' },
-        // Add more data from the Excel file
-      ];
-
-      const matchedData = excelData.find(data => userInput.includes(data.userPhrase));
-      if (matchedData) {
-        showTypingIndicator();
-        setTimeout(() => {
-          hideTypingIndicator();
-          const response = matchedData.aiResponse;
-          addAIMessage(response);
-          storeChatHistory();
-        }, generateTypingDelay());
-      } else {
-        // Default response if no match found
-        showTypingIndicator();
-        setTimeout(() => {
-          hideTypingIndicator();
-          const response = 'I apologize, but I am unable to assist with that at the moment.';
-          addAIMessage(response);
-          storeChatHistory();
-        }, generateTypingDelay());
-      }
-    }
-  }
-
-  // Event listener for minimize button
-  minimizeButton.addEventListener('click', toggleChatBox);
-
-  // Event listener for send button
-  sendButton.addEventListener('click', function () {
-    const userMessage = chatInput.value.trim();
-    if (userMessage !== '') {
-      addUserMessage(userMessage);
-      chatInput.value = '';
-
-      // Generate AI response
-      generateAIResponse(userMessage);
-    }
-  });
-
-  // Event listener for Enter key press in chat input
-  chatInput.addEventListener('keypress', function (event) {
-    if (event.keyCode === 13 || event.which === 13) {
-      event.preventDefault();
-      sendButton.click();
-    }
-  });
-
-  // Load chat history when the page is loaded
-  document.addEventListener('DOMContentLoaded', loadChatHistory);
-</script>
-
-
-
-  </div>
-  <script src="C:\Users\user1\Documents\Software\Website Code\chat.js"></script>
 </body>
 </html>
