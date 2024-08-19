@@ -1,7 +1,5 @@
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,23 +105,6 @@ p {
       z-index: 0; /* Place behind the text */
     }
 
-
-   /* For photo A (main landscape image) */
-.hero-section{
-    height: 100vh; /* Full viewport height */
-    width: 100%;
-    background-image: url('photos/landscape.jpg'); /* Set photo A as the background */
-    background-size: cover; /* Scale the image proportionally */
-    /* Add other styling as needed */
-}
-
-/* Media query for screens where height is greater than width */
-@media (orientation: portrait) {
-    .hero-section {
-        background-image: url('photos/portrait.jpg'); /* Switch to photo B */
-    }
-}
-
     .text-overlay {
       position: absolute;
       top: 50%;
@@ -145,39 +126,6 @@ p {
       font-size: 20px;
     }
 
-
-	/* For photo A (main landscape image) */
-.main-image {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* For photo B (alternative image) */
-.alternative-image {
-    display: none; /* Initially hidden */
-}
-
-/* Media query for screens where height is greater than width */
-@media (orientation: portrait) {
-    .main-image {
-        display: none; /* Hide photo A */
-    }
-    .alternative-image {
-        display: block; /* Show photo B */
-        width: 100%; /* Full width */
-        height: auto; /* Maintain aspect ratio */
-    }
-}  
-
-
-
-
-
-	  
-
-
-	  
-	  
     .content-section {
       min-height: 50vh;
       padding: 40px;
@@ -207,8 +155,6 @@ p {
       color: #ffffff;
       padding: 20px 10px;
       text-align: center;
-      border-top: none; /* Remove any border */
-      box-shadow: none; /* Ensure no box shadow */
     }
 
     footer p {
@@ -220,7 +166,7 @@ p {
       text-decoration: underline;
     }
 
- .social-icons {
+    .social-icons {
       display: flex;
       justify-content: center;
       margin-top: 20px;
@@ -237,10 +183,6 @@ p {
     .social-icons a:hover {
       color: #00aaff;
     }
-
-
-
-	  
 
     @media (max-width: 1060px) {
       header {
@@ -276,7 +218,7 @@ p {
 
     @media (Max-width: 398px) {
        footer p {
-         font-size: 12px;
+         font-size: 10px;
       }
     }
 
@@ -350,6 +292,24 @@ p {
         }
     }
   
+    .simple-button {
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #011727;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px; /* Add space above the button */
+    }
+
+    .simple-button:hover {
+      background-color: #01172775;
+    }
+
  
 
     .content-section {
@@ -471,8 +431,19 @@ p {
   }
 }
 
+@media (max-width: 1144px) {
+      footer p {
+        font-size: 13px;
+      }
+    }
 
-@media (max-width: 2000px) {
+    @media (max-width: 498px) {
+      footer p {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 2000px) {
       .text-overlay h2 {
         font-size: 40px;
       }
@@ -485,33 +456,11 @@ p {
         font-size: 14px;
       }
     }
-
- @media (max-width: 440px) {
+@media (max-width: 440px) {
   footer p {
     font-size: 8px;
   }
 }
-
-
-
-
-
-
-
-
-@media (max-width: 440px) {
-	footer p {
-         font-size: 8px;
-      }
-    }
-
-
-    @media (min-width: 720px) {
-  .text-container ol {
-    font-size: 18px;
-  }
-}
- 
 
   </style>
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
@@ -564,8 +513,9 @@ p {
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-	  <li><a href="about.html">About</a></li>
+	  <li><a href="index.html">Home</a></li>	
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="course.html">Course</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #fafafa;"></i></a></li>
@@ -574,24 +524,21 @@ p {
     </header>
 
     <section class="hero-section">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src="videos/tosbg.mp4" type="video/mp4"> <!-- Update path accordingly -->
+        Your browser does not support the video tag.
+      </video>
       <div class="text-overlay">
-        <h2></h2>
+        <h2>Terms of Service</h2>
         <p></p>
       </div>
     </section>
 
 
-
-   <section class="content-section">
-  <div class="text-container">
-    <h2>Terms of Service</h2>
-    <p style="text-align: center; padding: 10px 0;">ToS here...</p>
-  </div>
-</section>
-
+  
 
     <footer>
-      <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
+        <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
       <div class="social-icons">
         <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
         <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
@@ -599,6 +546,6 @@ p {
         <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
       </div>
     </footer>
-  </div>
+ </div>
 </body>
 </html>
