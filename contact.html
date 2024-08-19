@@ -217,7 +217,27 @@ p {
       text-decoration: underline;
     }
 
- 
+ .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #ffffff;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00aaff;
+    }
+
+
+
+	  
 
     @media (max-width: 1060px) {
       header {
@@ -467,43 +487,15 @@ p {
 }
 
 
-.social-section {
-  background-color: #000000; /* or any other background color you prefer */
-  padding: 40px;
-  text-align: center;
-}
-
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.social-buttons i {
-  font-size: 28px; /* adjust to your desired size */
-}
-
-.facebook-button, .instagram-button {
-  background-color: #000000; /* or any other background color you prefer */
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.facebook-button:hover, .instagram-button:hover {
-  background-color: #000000; /* or any other hover background color you prefer */
-}
-
+@media (max-width: 440px) {
+	footer p {
+         font-size: 8px;
+      }
+    }
 
 
 
  
-
-
-
-   
 
   </style>
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
@@ -606,8 +598,13 @@ p {
 
     <footer>
       <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
+        <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+        <a href="https://x.com" target="_blank" class="fab fa-x-twitter"></a> <!-- This assumes FontAwesome supports this class -->
+        <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
+      </div>
     </footer>
-
   </div>
 </body>
 </html>
