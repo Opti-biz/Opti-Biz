@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +32,17 @@
     }
 
     header {
-      background-color:#000000;
+      background-color: transparent; 
       padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #ffffff;
       flex-wrap: wrap; /* Allow wrapping */
+      position: absolute; /* Position header absolutely */
+      width: 100%; /* Make header width 100% */
+      top: 0;
+      z-index: 2; /* Ensure it's on top of the video */
     }
 
     .header-left {
@@ -185,7 +190,7 @@ p {
 
     @media (max-width: 1060px) {
       header {
-        padding: 10px;
+        padding: 14px;
       }
 
       nav ul {
@@ -195,7 +200,7 @@ p {
      
 
       .text-overlay {
-        top: 40%;
+        text-align: center;
       }
 
     
@@ -461,6 +466,27 @@ p {
   }
 }
 
+
+@media (min-width: 340px) {
+      .text-container p {
+        font-size: 18px; /* larger font size on very large screens */
+      }
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .content-section p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+
   </style>
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
 
@@ -529,6 +555,7 @@ p {
       <div class="text-overlay">
         <h2>Welcome to Opti<span>Biz</span></h2>
         <p>Your solution to business optimization</p>
+        <a href="course.html" class="simple-button">Get Started</a>
       </div>
     </section>
 
