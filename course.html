@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,17 +30,13 @@
     }
 
     header {
-      background-color: transparent;
+      background-color: #000000;
       padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #ffffff;
       flex-wrap: wrap; /* Allow wrapping */
-      position: absolute; /* Position header absolutely */
-      width: 100%; /* Make header width 100% */
-      top: 0;
-      z-index: 2; /* Ensure it's on top of the video */
     }
 
     .header-left {
@@ -81,7 +78,6 @@
       padding: 5px;
       color: #ffffff;
       text-decoration: none;
-      font-weight: bold; /* Keep the text bold */
     }
 
     .hero-section {
@@ -98,7 +94,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1; /* Place behind the text */
+      z-index: 0; /* Place behind the text */
     }
 
     .courses-container {
@@ -412,10 +408,6 @@
     </header>
 
     <section class="hero-section">
-      <video autoplay loop muted playsinline disablePictureInPicture>
-        <source src="videos/GWORLDBLNDR.mp4" type="video/mp4"> <!-- Update path accordingly -->
-        Your browser does not support the video tag.
-      </video>
       <div class="courses-container">
         <div class="course-box">
           <h2>Course Template</h2>
