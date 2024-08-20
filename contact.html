@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,9 @@
   <meta name="description" content="Web-Development Agency, - Optimise Your Business Today, with your very Own Website - 100% Ownership.">
   <meta name="keywords" content="HTML, CSS, JavaScript, Website, Web-Development, OptiBiz, Optibiz, optibiz, optibiz.agency, Optibiz.agency, OptiBiz.agency">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000"><!-- Sets the theme color for Android browsers -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"><!-- For iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>OptiBiz | Optimise your Business</title>
   <style>
     * {
@@ -33,13 +37,17 @@
     }
 
     header {
-      background-color:#000000;
+      background-color: transparent; 
       padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #ffffff;
       flex-wrap: wrap; /* Allow wrapping */
+      position: absolute; /* Position header absolutely */
+      width: 100%; /* Make header width 100% */
+      top: 0;
+      z-index: 2; /* Ensure it's on top of the video */
     }
 
     .header-left {
@@ -106,8 +114,7 @@ p {
       z-index: 0; /* Place behind the text */
     }
 
-
-   /* For photo A (main landscape image) */
+ /* For photo A (main landscape image) */
 .hero-section{
     height: 100vh; /* Full viewport height */
     width: 100%;
@@ -123,6 +130,8 @@ p {
     }
 }
 
+
+	  
     .text-overlay {
       position: absolute;
       top: 50%;
@@ -145,7 +154,7 @@ p {
     }
 
 
-	/* For photo A (main landscape image) */
+/* For photo A (main landscape image) */
 .main-image {
     width: 100%; /* Full width */
     height: auto; /* Maintain aspect ratio */
@@ -172,10 +181,6 @@ p {
 
 
 
-	  
-
-
-	  
 	  
     .content-section {
       min-height: 50vh;
@@ -219,7 +224,7 @@ p {
       text-decoration: underline;
     }
 
- .social-icons {
+    .social-icons {
       display: flex;
       justify-content: center;
       margin-top: 20px;
@@ -237,13 +242,9 @@ p {
       color: #00aaff;
     }
 
-
-
-	  
-
     @media (max-width: 1060px) {
       header {
-        padding: 10px;
+        padding: 14px;
       }
 
       nav ul {
@@ -253,7 +254,7 @@ p {
      
 
       .text-overlay {
-        top: 40%;
+        text-align: center;
       }
 
     
@@ -275,7 +276,7 @@ p {
 
     @media (Max-width: 398px) {
        footer p {
-         font-size: 12px;
+         font-size: 10px;
       }
     }
 
@@ -349,6 +350,24 @@ p {
         }
     }
   
+    .simple-button {
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #011727;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px; /* Add space above the button */
+    }
+
+    .simple-button:hover {
+      background-color: #01172775;
+    }
+
  
 
     .content-section {
@@ -389,7 +408,7 @@ p {
   }
 }
 
-@media (min-width: 340px) {
+@media (min-width: 290px) {
   .text-container h2 {
     font-size: 24px; /* even larger font size on very large screens */
   }
@@ -471,9 +490,21 @@ p {
 }
 
 
-@media (max-width: 2000px) {
+@media (max-width: 1144px) {
+      footer p {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 498px) {
+      footer p {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 2000px) {
       .text-overlay h2 {
-        font-size: 40px;
+        font-size: 46px;
       }
 
       .text-overlay p {
@@ -485,32 +516,49 @@ p {
       }
     }
 
- @media (max-width: 440px) {
+ @media (max-width: 1005px) {
+      .text-overlay h2 {
+        font-size: 36px;
+      }
+ }
+
+
+
+
+
+    
+@media (max-width: 440px) {
   footer p {
     font-size: 8px;
   }
 }
 
 
-
-
-
-
-
-
-@media (max-width: 440px) {
-	footer p {
-         font-size: 8px;
+@media (min-width: 290px) {
+      .text-container p {
+        font-size: 18px; /* larger font size on very large screens */
       }
     }
-
 
     @media (min-width: 720px) {
   .text-container ol {
     font-size: 18px;
   }
 }
- 
+  
+    .image-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .content-section p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
 
   </style>
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
@@ -564,7 +612,7 @@ p {
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-	  <li><a href="about.html">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="course.html">Course</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #fafafa;"></i></a></li>
@@ -572,7 +620,7 @@ p {
       </nav>
     </header>
 
-    <section class="hero-section">
+  <section class="hero-section">
       <div class="text-overlay">
         <h2></h2>
         <p></p>
@@ -580,7 +628,10 @@ p {
     </section>
 
 
-    <section class="content-section">
+
+
+    
+      <section class="content-section">
       <div class="text-container">
       <h2>Contact</h2>
       <ol style="text-align: center; padding: 10px 0;">
@@ -592,11 +643,8 @@ p {
      </div>
     </section>
 
-   
-
-
     <footer>
-      <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
+        <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
       <div class="social-icons">
         <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
         <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
@@ -604,6 +652,6 @@ p {
         <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
       </div>
     </footer>
-  </div>
+ </div>
 </body>
 </html>
