@@ -385,13 +385,19 @@
     itemCounts[item] = (itemCounts[item] || 0) + 1;
   });
 
-  let total = 0;
-  const itemPrice = 99; // Example price in GBP (£)
+     let total = 0;
+      const itemPrices = {
+        'Course Templates': 149,
+        'Website Development': 649,
+        'Marketing Strategies': 499,
+        'SEO Services': 649
+
+  };
 
   for (let [item, count] of Object.entries(itemCounts)) {
     const itemBox = document.createElement('div');
     itemBox.classList.add('course-box');
-    total += itemPrice * count;
+      total += (itemPrices[item] || 0) * count;
 
     itemBox.innerHTML = `
       <h2>${item} ${count > 1 ? `x${count}` : ''}</h2>
