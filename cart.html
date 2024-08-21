@@ -385,7 +385,7 @@
       });
 
       let total = 0;
-      const itemPrice = 10; // Example price
+      const itemPrice = 99; // Example price
 
       for (let [item, count] of Object.entries(itemCounts)) {
         const itemBox = document.createElement('div');
@@ -393,14 +393,14 @@
         total += itemPrice * count;
 
         itemBox.innerHTML = `
-          <h2>${item} ${count > 1 ? `x${count}` : ''}</h2>
-          <button class="remove-from-cart-btn" onclick="removeFromCart('${item}')">Remove</button>
+          <h2>£{item} £{count > 1 ? `x£{count}` : ''}</h2>
+          <button class="remove-from-cart-btn" onclick="removeFromCart('£{item}')">Remove</button>
         `;
         cartContainer.appendChild(itemBox);
       }
 
       cartSummary.innerHTML = `
-        <p>Total: $${total.toFixed(2)}</p>
+        <p>Total: ££{total.toFixed(2)}</p>
         <button class="add-to-cart-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
       `;
     }
