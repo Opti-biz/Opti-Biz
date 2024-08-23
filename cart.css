@@ -355,25 +355,25 @@
 
 @media (max-width: 440px) {
     footer p {
-        font-size: 8px;
+        font-size: 8px !important;
     }
 }
 
 @media (max-width: 498px) {
     footer p {
-        font-size: 10px;
+        font-size: 10px !important;
     }
 }
 
 @media (max-width: 1144px) {
     footer p {
-        font-size: 13px;
+        font-size: 13px !important;
     }
 }
 
 @media (max-width: 768px) {
     footer p {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 }
 
