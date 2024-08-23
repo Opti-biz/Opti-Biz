@@ -349,3 +349,33 @@
         height: fit-content;
       }
     }
+
+
+
+
+@media (max-width: 440px) {
+    footer p {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 498px) {
+    footer p {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1144px) {
+    footer p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer p {
+        font-size: 14px;
+    }
+}
+
+
+
