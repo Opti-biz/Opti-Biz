@@ -171,7 +171,7 @@ p {
     .content-section {
       min-height: 50vh;
       padding: 40px;
-      background-color: #000000;
+      background-color: #011727;
       text-align: center;
       z-index: 0;
       color: #ffffff;
@@ -197,7 +197,7 @@ p {
       color: #ffffff;
       padding: 20px 10px;
       text-align: center;
-      border-top: none; /* Remove any border */
+      border-top: 2px solid #ffffff; /* Remove any border */
       box-shadow: none; /* Ensure no box shadow */
     }
 
