@@ -106,7 +106,7 @@ p {
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: #000000;
+      color: #ffffff;
       z-index: 1 ;
     }
 
@@ -114,7 +114,7 @@ p {
       font-size: 55px;
       margin-bottom: 10px;
       margin-top: 10px;
-      color: #ffffff;
+      color: #0000000;
     }
 
     .text-overlay p {
