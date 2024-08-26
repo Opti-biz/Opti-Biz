@@ -13,56 +13,7 @@
   <title>OptiBiz | Optimise your Business</title>
  </head>
   
-  <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
-
-  <script>
-    console.log(navigator.userAgent);
-    
-if (navigator.userAgent.match(/Instagram|FBAV|FBAN|FB|FBIOS|FBAN\/FBIOS/)) {
-    alert("For a better experience, please open this page in your browser. (... Top right, 'Open in external browser')");
-}
-
-
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const video = document.querySelector('video');
-
-    if (video) {
-      video.disablePictureInPicture = true;
-
-      // Function to handle visibility change and focus
-      function handleVisibilityChange() {
-        if (!document.hidden && video.paused) {
-          video.play().catch(error => {
-            console.log('Autoplay prevented:', error);
-          });
-        }
-      }
-
-      // Function to handle page focus
-      function handleFocus() {
-        if (video.paused) {
-          video.play().catch(error => {
-            console.log('Autoplay prevented:', error);
-          });
-        }
-      }
-
-      // Event listeners
-      document.addEventListener("visibilitychange", handleVisibilityChange);
-      window.addEventListener("focus", handleFocus);
-
-      // Initial check
-      handleVisibilityChange();
-    }
-  });
-
-
-
-
-
-    
-  </script>
+ 
 <body>
   <div class="container">
     <header>
@@ -115,6 +66,60 @@ if (navigator.userAgent.match(/Instagram|FBAV|FBAN|FB|FBIOS|FBAN\/FBIOS/)) {
       </div>
     </section>
 
+
+ <!-- Load Font Awesome -->
+  <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    console.log(navigator.userAgent);
+    
+    if (navigator.userAgent.match(/Instagram|FBAV|FBAN|FB|FBIOS|FBAN\/FBIOS/)) {
+      alert("For a better experience, please open this page in your browser. (... Top right, 'Open in external browser')");
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const video = document.querySelector('video');
+
+      if (video) {
+        video.disablePictureInPicture = true;
+
+        // Function to handle visibility change and focus
+        function handleVisibilityChange() {
+          if (!document.hidden && video.paused) {
+            video.play().catch(error => {
+              console.log('Autoplay prevented:', error);
+            });
+          }
+        }
+
+        // Function to handle page focus
+        function handleFocus() {
+          if (video.paused) {
+            video.play().catch(error => {
+              console.log('Autoplay prevented:', error);
+            });
+          }
+        }
+
+        // Event listeners
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        window.addEventListener("focus", handleFocus);
+
+        // Initial check
+        handleVisibilityChange();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
     <footer>
         <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
       <div class="social-icons">
