@@ -15,6 +15,11 @@
   
 
 <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous"></script>
+
+   <!-- Include Stripe.js -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  
   <script>
     function loadCart() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -73,10 +78,48 @@ function removeFromCart(item) {
   loadCart();
 }
 
-function proceedToCheckout() {
-  alert('Proceeding to checkout.');
-}
+async function proceedToCheckout() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let itemCounts = {};
+      cart.forEach(item => {
+        itemCounts[item] = (itemCounts[item] || 0) + 1;
+      });
 
+      let items = [];
+      const itemPrices = {
+        'Course (Templates)': 14900, // Stripe amounts are in cents
+        'Website Development (No payment Gateway)': 79900,
+        'Website Development (Payment Gateway)': 99900,
+        'Marketing Strategy': 99900,
+        'SEO Services': 99900
+      };
+
+      for (let [item, count] of Object.entries(itemCounts)) {
+        items.push({
+          price_data: {
+            currency: 'gbp',
+            product_data: {
+              name: item,
+            },
+            unit_amount: itemPrices[item] || 0,
+          },
+          quantity: count,
+        });
+      }
+
+      const response = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ items }),
+      });
+
+      const session = await response.json();
+
+      const stripe = Stripe('pk_live_51PqLhOFDR0ud356M7EymBKLS9Lwr1DCA8YZDKyc3LrxvfmilhSJiO4re9oYy3INOmgRaEhQBJvIuJ5DG6Zpcl0Gx00W1GMJLua'); // Replace with your Stripe publishable key
+      stripe.redirectToCheckout({ sessionId: session.id });
+    }
 
     window.onload = loadCart;
   </script>
