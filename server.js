@@ -1,6 +1,6 @@
 require("dotenv").config();
-
 const express = require("express");
+const path = require("path"); // Added path module
 const app = express();  // Correct instance creation
 app.use(express.json());
 
@@ -100,6 +100,7 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+const port = process.env.PORT || 3000; // Bind to the port specified by Heroku
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
