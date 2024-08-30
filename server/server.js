@@ -3,7 +3,11 @@ require("dotenv").config();
 const express = require("express");
 const app = express();  // Correct instance creation
 app.use(express.json());
-app.use(express.static("public"));
+
+// Example of serving static files from the root
+app.get('/cart.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'cart.html'));
+});
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
