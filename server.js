@@ -109,7 +109,7 @@ app.get("/test", (req, res) => {
   res.send("Server is working!");
 });
 
-
+res.header("Access-Control-Allow-Origin", "https://optibiz.agency");
 
 
 
