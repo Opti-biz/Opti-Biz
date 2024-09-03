@@ -5,12 +5,12 @@ const app = express();
 const cors = require('cors');
 
 // Serve static files from the OPTIBIZTESTER directory
-app.use(express.static(path.join(__dirname, '.')));
+app.use(express.static(path.join(__dirname, '..')));
 
 app.use(cors());
 app.use(express.json());
 
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 const itemPrices = new Map([
   [1, { priceInCents: 14900, name: "Course (Templates)" }],
@@ -49,8 +49,6 @@ const validateItems = (req, res, next) => {
 };
 
 app.post("/create-checkout-session", validateItems, async (req, res) => {
-  const YOUR_DOMAIN = 'https://dry-thicket-66866-b4c77f1174f7.herokuapp.com';
-
   try {
     console.log("Received request to create a checkout session", req.body.items);
 
@@ -110,7 +108,6 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
 app.get("/test", (req, res) => {
   res.send("Server is working!");
 });
-
 
 
 const PORT = process.env.PORT || 3000;
