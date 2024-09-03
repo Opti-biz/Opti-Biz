@@ -7,8 +7,22 @@ const cors = require('cors');
 // Serve static files from the OPTIBIZTESTER directory
 app.use(express.static(path.join(__dirname, '..')));
 
-app.use(cors());
+// Enable CORS for all routes
+app.use(cors({
+  origin: 'https://optibiz.agency' // Replace with your frontend domain
+}));
+
+
 app.use(express.json());
+
+app.post('/create-checkout-session', async (req, res) => {
+  // Your Stripe checkout session code
+});
+
+// Start the server
+app.listen(process.env.PORT || 3000, () => console.log('Server running'));
+
+
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
