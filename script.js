@@ -91,7 +91,7 @@ async function proceedToCheckout() {
 
       console.log("Sending items to server:", items);
 
-      const response = await fetch('http://localhost:3000/create-checkout-session', {
+      const response = await fetch('https://dry-thicket-66866-b4c77f1174f7.herokuapp.com/create-checkout-session', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

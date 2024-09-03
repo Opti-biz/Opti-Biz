@@ -1,13 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Server for OptiBiz Agency (For Checkout)",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node", "express", "next"],
+  "author": "Your Name",
   "license": "ISC",
   "dependencies": {
     "@stripe/stripe-js": "^4.4.0",
@@ -19,6 +20,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  },
-  "description": ""
+  }
 }
