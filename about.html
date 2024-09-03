@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Web-Development Agency, - Optimise Your Business Today, with your very Own Website - 100% Ownership.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Website, Web-Development, OptiBiz, Optibiz, optibiz, optibiz.agency, Optibiz.agency, OptiBiz.agency">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000"><!-- Sets the theme color for Android browsers -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"><!-- For iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" href="photos/OBNEWINLINEWHITE.png" type="image/png">
+  <link rel="stylesheet" href="about.css">
+  <title>OptiBiz | About</title>
+  
+  <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous">
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const video = document.querySelector('video');
+
+    if (video) {
+      video.disablePictureInPicture = true;
+
+      // Function to handle visibility change and focus
+      function handleVisibilityChange() {
+        if (!document.hidden && video.paused) {
+          video.play().catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
+        }
+      }
+
+      // Function to handle page focus
+      function handleFocus() {
+        if (video.paused) {
+          video.play().catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
+        }
+      }
+
+      // Event listeners
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+      window.addEventListener("focus", handleFocus);
+
+      // Initial check
+      handleVisibilityChange();
+    }
+  });
+
+
+
+
+
+    
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>
+          <img src="photos/OBNEWINLINEBLACK.png" alt="OptiBiz Logo" style="height: 35px;">
+        </h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="course.html">Course</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="cart.html"><i class="fas fa-cart-shopping" style="color: #000000;"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+
+   <section class="hero-section">
+      <video autoplay loop muted playsinline disablePictureInPicture>
+        <source src="videos/aboutbg2.mp4" type="video/mp4"> <!-- Update path accordingly -->
+        Your browser does not support the video tag.
+      </video>
+      <div class="text-overlay">
+        <h2>About</h2>
+        <p></p>
+      </div>
+    </section>
+
+
+  <section class="content-section">
+      <div class="text-container">
+      <h2>Our Story</h2>
+      <p>We founded OptiBiz because we understand the challenges of starting a business. Navigating the complexities of web development shouldn’t be an obstacle. That’s why we offer a streamlined solution that puts you in control.</p>
+      <h2>What Sets Us Apart?</h2>
+    <ol style="text-align: center; padding: 10px 0;">
+    <li>One-Time Fee: We believe in transparency. With OptiBiz, you pay a one-time fee for web development. No hidden costs, no surprises.</li>
+    <br>
+    <li>Free Hosting: Hosting shouldn’t be a burden. We provide a free hosting solution, so you can focus on what matters most—building your brand.</li>
+    <br> 
+    <li>Domain Purchase: The only additional expense is purchasing a domain (often less than £10/year). We recommend reliable providers like GoDaddy.</li>
+    <br>  
+    <li>Website Ownership: Unlike other companies, we encourage website ownership. With OptiBiz, you have 100% ownership and control.</li>
+    <br>  
+    <li>No Recurring Costs: Once you’ve completed our course and created your website, there are no recurring fees. Your website remains functional without any ongoing payments.</li>
+    <br>  
+    <li>Tailored Templates: OptiBiz provides a variety of templates, each with unique designs. Choose the one that aligns with your vision, and follow our step-by-step video guide to customize it. You’ll only need to update text fields, photos, and videos.</li>
+    <br> 
+    <li>Expert Support: Should you encounter any difficulties, our team is here to assist you. We’re committed to your success.</li>
+    </ol>
+      <p>Join OptiBiz today and unlock the future of website ownership. Your business deserves a digital presence that’s truly yours!</p>
+     </div>
+    </section>
+
+    <section class="content-section">
+        <div class="image-section">
+      <h2>Course Overview</h2>
+      <video width="100%" controls>
+        <source src="videos/.mp4" type="video/mp4">
+      </video>
+      <a href="course.html" class="simple-button">Course Page</a>
+      </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/optibiz.agency?igsh=MWE2M"loczN5b3Nzdw==" target="_blank" class="fab fa-instagram"></a>
+        <a href="https://x.com/opti_biz?s=21&t=O8WMIBNZqK8JX4ZdaXMtOw" target="_blank" class="fab fa-x-twitter"></a> <!-- This assumes FontAwesome supports this class -->
+      </div>
+    </footer>
+ </div>
+</body>
+</html>
