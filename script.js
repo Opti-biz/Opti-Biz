@@ -61,7 +61,6 @@ function removeFromCart(item) {
   localStorage.setItem('cart', JSON.stringify(cart));
   loadCart();
 }
-
 async function proceedToCheckout() {
   try {
       const checkoutButton = document.getElementById("checkout-btn");
