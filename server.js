@@ -49,6 +49,8 @@ const validateItems = (req, res, next) => {
 };
 
 app.post("/create-checkout-session", validateItems, async (req, res) => {
+  const YOUR_DOMAIN = 'https://dry-thicket-66866-b4c77f1174f7.herokuapp.com';
+
   try {
     console.log("Received request to create a checkout session", req.body.items);
 
