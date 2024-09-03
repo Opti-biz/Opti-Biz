@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, '.')));
 app.use(cors());
 app.use(express.json());
 
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 const itemPrices = new Map([
   [1, { priceInCents: 14900, name: "Course (Templates)" }],
