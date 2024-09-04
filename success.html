@@ -26,7 +26,21 @@
             background-color: #0123ff; /* Match the body background color */
         }
 
+        @media only screen and (max-width: 968px) {
+    video {
+        object-fit: contain; /* Ensure it covers the mobile screen */
+        background-color: #0123ff;
+    }
+}
+@media only screen and (min-width: 969px) {
+    video {
+        object-fit: cover; /* Cover on larger screens */
+    }
+}
         
+
+
+
     </style>
 </head>
 <body>
@@ -47,7 +61,16 @@
 
        window.addEventListener('load', () => {
            video.play();
+           video.style.display = 'none'; // Temporarily hide the video
+           video.offsetHeight; // Trigger reflow/repaint
+           video.style.display = 'block'; // Show the video again
        });
+
+       video.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
+
     </script>
 </body>
 </html>
