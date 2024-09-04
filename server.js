@@ -4,7 +4,7 @@ const path = require("path");
 const app = express();
 const cors = require('cors');
 
-// Serve static files from the OPTIBIZTESTER directory
+// Serve static files from the directory
 app.use(express.static(path.join(__dirname, '.')));
 
 app.use(cors());
@@ -49,7 +49,7 @@ const validateItems = (req, res, next) => {
 };
 
 app.post("/create-checkout-session", validateItems, async (req, res) => {
-  const YOUR_DOMAIN = 'https://dry-thicket-66866-b4c77f1174f7.herokuapp.com';
+  const YOUR_DOMAIN = 'https://optibiz-agency1.herokuapp.com';
 
   try {
     console.log("Received request to create a checkout session", req.body.items);
