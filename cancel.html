@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #0123ff; /* Background color to match the video */
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Original fit */
+            position: relative;
+            z-index: 1;
+            background-color: #ffffff; /* Match the body background color */
+        }
+
+        @media only screen and (max-width: 1399px) {
+    video {
+        object-fit: contain; /* Ensure it covers the mobile screen */
+        background-color: #000000;
+    }
+}
+@media only screen and (min-width: 1400px) {
+    video {
+        object-fit: cover; /* Cover on larger screens */
+    }
+}
+        
+
+
+
+    </style>
+</head>
+<body>
+    <video id="success-video" muted playsinline preload="auto" disablePictureInPicture>
+        <source src="videos/oopsbg.mp4" type="video/mp4"> <!-- Update path accordingly -->
+        Your browser does not support the video tag.
+    </video>
+
+
+
+    <script>
+       const video = document.getElementById('success-video');
+
+       video.addEventListener('ended', function() {
+           video.pause();
+           video.currentTime = video.duration;
+       });
+
+       window.addEventListener('load', () => {
+           video.play();
+          // video.style.display = 'none'; // Temporarily hide the video
+          // video.offsetHeight; // Trigger reflow/repaint
+           //  video.style.display = 'block'; // Show the video again
+       });
+
+       video.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
+
+    </script>
+</body>
+</html>
