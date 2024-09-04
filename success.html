@@ -43,42 +43,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-video.addEventListener('loadeddata', function() {
-    // Set canvas dimensions to match the video
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-
-    // Draw the first frame of the video onto the canvas
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    // Get the pixel data of the canvas
-    const pixelData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-
-    // Function to get the edge color from pixel data
-    function getEdgeColor(data) {
-        // Analyze the pixels at the top edge of the canvas
-        for (let i = 0; i < canvas.width * 4; i += 4) {
-            const color = `${data[i]},${data[i + 1]},${data[i + 2]}`;
-            const r = data[i];
-            const g = data[i + 1];
-            const b = data[i + 2];
-
-            // Convert the RGB color to hexadecimal
-            const hexColor = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
-
-            // Return the first non-transparent pixel color as the edge color
-            if (data[i + 3] !== 0) {
-                return hexColor;
-            }
-        }
-
-        // If no non-transparent pixels are found, return a default color
-        return '#000000';
-    }
-
-    const edgeColor = getEdgeColor(pixelData);
-    console.log(`Edge color: ${edgeColor}`);
-});
 
 video.addEventListener('ended', function() {
     video.pause();
