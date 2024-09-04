@@ -44,7 +44,7 @@
     </style>
 </head>
 <body>
-    <video id="success-video" muted playsinline disablePictureInPicture>
+    <video id="success-video" muted playsinline preload="auto" disablePictureInPicture>
         <source src="videos/checkmark.mp4" type="video/mp4"> <!-- Update path accordingly -->
         Your browser does not support the video tag.
     </video>
@@ -61,9 +61,9 @@
 
        window.addEventListener('load', () => {
            video.play();
-           video.style.display = 'none'; // Temporarily hide the video
-           video.offsetHeight; // Trigger reflow/repaint
-           video.style.display = 'block'; // Show the video again
+          // video.style.display = 'none'; // Temporarily hide the video
+          // video.offsetHeight; // Trigger reflow/repaint
+           //  video.style.display = 'block'; // Show the video again
        });
 
        video.addEventListener('touchstart', function(e) {
