@@ -107,7 +107,7 @@ async function proceedToCheckout() {
       const { id } = await response.json();
       console.log("Received session ID:", id);
 
-      const stripe = Stripe('pk_test_51PqLhOFDR0ud356M3fhrehDJTraRCSolfCHH7QRm8Zei5xgTqSrYQrQWdvqokfkdxJxkBIhKnpuHLYAr6Vv3AFiR00MHA3nY8p'); // Replace with your Stripe public key
+      const stripe = Stripe('pk_live_51PqLhOFDR0ud356M7EymBKLS9Lwr1DCA8YZDKyc3LrxvfmilhSJiO4re9oYy3INOmgRaEhQBJvIuJ5DG6Zpcl0Gx00W1GMJLua'); // Replace with your Stripe public key
       const result = await stripe.redirectToCheckout({ sessionId: id });
 
       if (result.error) {
