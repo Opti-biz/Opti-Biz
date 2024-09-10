@@ -76,8 +76,12 @@ p {
     }
 
     nav ul li {
-      margin-left: 20px;
+      margin-left: 30px; /* was 20px before
     }
+
+    nav ul li:first-child {
+      margin-left: 0; /* Ensure the first item doesn't have extra space on the left */
+  }
 
     nav ul li a {
       display: block;
@@ -86,6 +90,10 @@ p {
       text-decoration: none;
       font-weight: bold; /* Keep the text bold if desired */
     }
+
+    nav ul li a:hover {
+      color: #00aaff; /* Optional: Change color on hover */
+  }
 
     .hero-section {
       position: relative;
