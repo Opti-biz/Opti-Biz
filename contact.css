@@ -75,6 +75,11 @@ p {
       margin-left: 20px;
     }
 
+    nav ul li:first-child {
+      margin-left: 0; /* Ensure the first item doesn't have extra space on the left */
+  }
+
+
     nav ul li a {
       display: block;
       padding: 5px;
@@ -82,6 +87,11 @@ p {
       text-decoration: none;
       font-weight: bold; /* Keep the text bold if desired */
     }
+
+    nav ul li a:hover {
+      color: #00aaff; /* Optional: Change color on hover */
+  }
+
 
     .hero-section {
       position: relative;
@@ -268,7 +278,7 @@ p {
 
 
 
-    @media (max-width: 587px) {
+    @media (max-width: 460px) { 
       header {
         flex-direction: column;
         align-items: center;
@@ -284,8 +294,8 @@ p {
       }
 
       nav ul li {
-        margin-left: 6px;
-        margin-right: 6px;
+        margin-left: 12px;
+        margin-right: 12px;
       }
     }
 
@@ -312,19 +322,19 @@ p {
 
     @media (max-width: 430px) {
         nav ul li {
-            font-size: clamp(14px, 2.0vw, 15px);
+            font-size: clamp(16px, 2.0vw, 17px);
         }
     }
 
     @media (max-width: 380px) {
         nav ul li {
-            font-size: clamp(13px, 2.0vw, 14px);
+            font-size: clamp(15px, 2.0vw, 16px);
         }
     }
 
     @media (max-width: 363px) {
         nav ul li {
-            font-size: clamp(12px, 2.0vw, 13px);
+            font-size: clamp(14px, 2.0vw, 15px);
         }
     }
 
@@ -332,7 +342,7 @@ p {
 
     @media (max-width: 347px) {
         nav ul li {
-            font-size: clamp(11px, 2.0vw, 12px);
+            font-size: clamp(13px, 2.0vw, 14px);
         }
     }
   

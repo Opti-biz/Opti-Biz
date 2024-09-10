@@ -71,6 +71,10 @@
       font-weight: bold; /* Keep the text bold */
     }
 
+    nav ul li a:hover {
+      color: #00aaff; /* Optional: Change color on hover */
+  }
+
     .hero-section {
       position: relative;
       width: 100%;
@@ -228,7 +232,7 @@
       }
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 460px) { 
       header {
         flex-direction: column;
         align-items: center;
@@ -244,9 +248,18 @@
       }
 
       nav ul li {
-        margin-left: 6px;
-        margin-right: 6px;
+        margin-left: 12px;
+        margin-right: 12px;
       }
+    }
+
+    
+    :root {
+      --font-size: clamp(12px, 2vw, 18px);
+    }
+
+    nav ul li {
+      font-size: var(--font-size);
     }
 
     @media (max-width: 500px) {
@@ -256,28 +269,43 @@
     }
 
     @media (min-width: 340px) {
-      nav ul li {
-        font-size: clamp(16px, 2vw, 20px);
-      }
+        nav ul li {
+          font-size: clamp(16px, 2vw, 20px);
+        }
     }
 
     @media (max-width: 430px) {
-      nav ul li {
-        font-size: clamp(14px, 2.0vw, 15px);
-      }
+        nav ul li {
+            font-size: clamp(16px, 2.0vw, 17px);
+        }
     }
 
     @media (max-width: 380px) {
-      nav ul li {
-        font-size: clamp(13px, 2.0vw, 14px);
-      }
+        nav ul li {
+            font-size: clamp(15px, 2.0vw, 16px);
+        }
     }
 
     @media (max-width: 363px) {
-      nav ul li {
-        font-size: clamp(12px, 2.0vw, 13px);
-      }
+        nav ul li {
+            font-size: clamp(14px, 2.0vw, 15px);
+        }
     }
+
+
+
+    @media (max-width: 347px) {
+        nav ul li {
+            font-size: clamp(13px, 2.0vw, 14px);
+        }
+    }
+
+    @media (max-width: 310px) {
+      nav ul li {
+          font-size: clamp(12px, 2.0vw, 13px);
+      }
+  }
+
 
     @media (max-width: 398px) {
       footer p {
