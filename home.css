@@ -76,7 +76,7 @@ p {
     }
 
     nav ul li {
-      margin-left: 30px; /* was 20px before
+      margin-left: 20px; 
     }
 
     nav ul li:first-child {
