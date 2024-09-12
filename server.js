@@ -14,10 +14,11 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 const itemPrices = new Map([
   [1, { priceInCents: 14900, name: "Course (Templates)" }],
-  [2, { priceInCents: 99900, name: "Website Development (No payment Gateway)" }],
-  [3, { priceInCents: 199900, name: "Website Development (Payment Gateway)" }],
-  [4, { priceInCents: 199900, name: "Marketing Strategy" }],
-  [5, { priceInCents: 199900, name: "SEO Services" }],
+  [2, { priceInCents: 59900, name: "Website Development (No payment Gateway)" }],
+  [3, { priceInCents: 114900, name: "Website Development (Payment Gateway)" }],
+  [4, { priceInCents: 124900, name: "Marketing Strategy" }],
+  [5, { priceInCents: 1000, name: "Service Request" }],
+  [6, { priceInCents: 5000, name: "Deposit" }],
 ]);
 
 const validateItems = (req, res, next) => {

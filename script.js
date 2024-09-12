@@ -27,10 +27,11 @@ function loadCart() {
   let total = 0;
   const itemPrices = {
       'Course (Templates)': 149,
-      'Website Development (No payment Gateway)': 999,
-      'Website Development (Payment Gateway)': 1999,
-      'Marketing Strategy': 1999,
-      'SEO Services': 1999
+      'Website Development (No payment Gateway)': 599,
+      'Website Development (Payment Gateway)': 1149,
+      'Marketing Strategy': 1249,
+      'Service Request': 10,
+      'Deposit': 50
   };
 
   for (let [item, count] of Object.entries(itemCounts)) {
@@ -77,7 +78,8 @@ async function proceedToCheckout() {
           'Website Development (No payment Gateway)': 2,
           'Website Development (Payment Gateway)': 3,
           'Marketing Strategy': 4,
-          'SEO Services': 5
+          'Service Request' : 5,
+          'Deposit': 6
       };
 
       let items = [];
