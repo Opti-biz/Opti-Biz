@@ -506,3 +506,28 @@ p {
       margin-bottom: 20px;
     }
 
+    .feature-list {
+      list-style-type: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+      text-align: center; /* Center align the list items */
+    }
+    
+    .feature-list li {
+      display: flex; /* Use flexbox for alignment */
+      align-items: center; /* Vertically align checkmark and text */
+      justify-content: center; /* Center the text horizontally */
+      padding-left: 0px; /* Space for the checkmark */
+      margin-bottom: 10px; /* Space between list items */
+      position: relative; /* Positioning context for the checkmark */
+    }
+    
+    .feature-list li::before {
+      content: '✔'; /* Unicode character for checkmark */
+      color: green; /* Green color for the checkmark */
+      position: absolute;
+      right: -30px; /* Adjust based on space needed */
+      font-size: 20px; /* Adjust size as needed */
+    }
+    
+    
