@@ -523,10 +523,12 @@ p {
     }
     
     .feature-list li::before {
-      content: '✔'; /* Unicode character for checkmark */
+      content: '\f00c'; /* Unicode for FontAwesome checkmark */
+      font-family: 'Font Awesome 5 Free'; /* Ensure correct font family */
+      font-weight: 900; /* Adjust if needed */
       color: green; /* Green color for the checkmark */
       position: absolute;
-      right: -30px; /* Adjust based on space needed */
+      right: -45px; /* Adjust based on space needed */
       font-size: 20px; /* Adjust size as needed */
     }
     
