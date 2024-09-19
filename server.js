@@ -18,7 +18,7 @@ const itemPrices = new Map([
   [3, { priceInCents: 114900, name: "Website Development (Payment Gateway)" }],
   [4, { priceInCents: 124900, name: "Marketing Strategy" }],
   [5, { priceInCents: 1000, name: "Service Request" }],
-  [6, { priceInCents: 5000, name: "Deposit" }],
+  [6, { priceInCents: 9900, name: "Deposit" }],
 ]);
 
 const validateItems = (req, res, next) => {

@@ -31,7 +31,7 @@ function loadCart() {
       'Website Development (Payment Gateway)': 1149,
       'Marketing Strategy': 1249,
       'Service Request': 10,
-      'Deposit': 50
+      'Deposit': 99
   };
 
   for (let [item, count] of Object.entries(itemCounts)) {
