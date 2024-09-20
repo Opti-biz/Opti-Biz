@@ -1,0 +1,10 @@
+{
+    "root": "public",
+    "routes": {
+      "/(.*)": {
+        "status": 301,
+        "url": "https://www.optibiz.agency/$1"
+      }
+    }
+  }
+  
