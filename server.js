@@ -5,6 +5,20 @@ const app = express();
 const cors = require('cors');
 
 // Serve static files from the OPTIBIZTESTER directory
+app.use((req, res, next) => {
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+    return res.redirect('https://' + req.get('Host') + req.url);
+  }
+
+  // Redirect non-www to www
+  if (req.hostname === 'optibiz.agency') {
+    return res.redirect(301, 'https://www.optibiz.agency' + req.originalUrl);
+  }
+
+  next();
+});
+
+
 app.use(express.static(path.join(__dirname, '.')));
 
 app.use(cors());
