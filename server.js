@@ -1,8 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const app = express();
 const cors = require('cors');
+const fetch = require('node-fetch'); // Import node-fetch
+
+const app = express();
 
 // Serve static files from the OPTIBIZTESTER directory
 app.use((req, res, next) => {
@@ -18,9 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use(express.static(path.join(__dirname, '.')));
-
 app.use(cors());
 app.use(express.json());
 
@@ -108,11 +108,15 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items: lineItems,
-      success_url: `${process.env.SERVER_URL}/success.html`,
-      cancel_url: `${process.env.SERVER_URL}/cancel.html`,
+      success_url: successUrl,
+      cancel_url: cancelUrl,
     });
 
     console.log("Session created successfully:", session.id);
+    
+    // Wait for IndexNow request to complete
+await sendIndexNowRequest('https://www.optibiz.agency/index.html');
+
 
     res.json({ id: session.id });
   } catch (e) {
@@ -121,12 +125,31 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
   }
 });
 
+// Function to send IndexNow request
+const sendIndexNowRequest = async (url) => {
+  try {
+    const response = await fetch('https://www.bing.com/indexnow', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        url: url,
+        key: 'f0dfe42342c84d2b9bf4b9b61bedb3fe' // Replace with your actual API key
+      })
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error sending IndexNow request:', error);
+  }
+};
+
 // Test route to confirm server is up
 app.get("/test", (req, res) => {
   res.send("Server is working!");
 });
-
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
