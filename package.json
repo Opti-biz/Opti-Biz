@@ -7,7 +7,11 @@
     "devStart": "nodemon server.js",
     "start": "node server.js"
   },
-  "keywords": ["node", "express", "next"],
+  "keywords": [
+    "node",
+    "express",
+    "next"
+  ],
   "author": "Your Name",
   "license": "ISC",
   "dependencies": {
@@ -16,6 +20,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "next": "^14.2.7",
+    "node-fetch": "^3.3.2",
     "stripe": "^16.9.0"
   },
   "devDependencies": {
