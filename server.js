@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require('cors');
-const fetch = require('node-fetch'); // Import node-fetch
+const fetch = require('node-fetch');
 
 const app = express();
 
@@ -63,6 +63,27 @@ const validateItems = (req, res, next) => {
   next();
 };
 
+// Function to send IndexNow request
+const sendIndexNowRequest = async (url) => {
+  try {
+    const response = await fetch('https://www.bing.com/indexnow', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        url: url,
+        key: 'f0dfe42342c84d2b9bf4b9b61bedb3fe' // Replace with your actual API key
+      })
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error sending IndexNow request:', error);
+  }
+};
+
 app.post("/create-checkout-session", validateItems, async (req, res) => {
   const YOUR_DOMAIN = 'https://optibiz-agency1-1c900b4236c5.herokuapp.com';
 
@@ -115,8 +136,7 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
     console.log("Session created successfully:", session.id);
     
     // Wait for IndexNow request to complete
-await sendIndexNowRequest('https://www.optibiz.agency/index.html');
-
+    await sendIndexNowRequest('https://www.optibiz.agency/index.html');
 
     res.json({ id: session.id });
   } catch (e) {
@@ -124,27 +144,6 @@ await sendIndexNowRequest('https://www.optibiz.agency/index.html');
     res.status(500).json({ error: "Failed to create checkout session" });
   }
 });
-
-// Function to send IndexNow request
-const sendIndexNowRequest = async (url) => {
-  try {
-    const response = await fetch('https://www.bing.com/indexnow', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        url: url,
-        key: 'f0dfe42342c84d2b9bf4b9b61bedb3fe' // Replace with your actual API key
-      })
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error('Error sending IndexNow request:', error);
-  }
-};
 
 // Test route to confirm server is up
 app.get("/test", (req, res) => {
