@@ -122,7 +122,7 @@ p {
 /* Media query for screens where height is greater than width */
 @media (orientation: portrait) {
     .hero-section {
-        background-image: url('photos/contactportrait.jpg'); /* Switch to photo B */
+        background-image: url('photos/contactvert.jpg'); /* Switch to photo B */
     }
 }
 
