@@ -76,7 +76,17 @@
 
  <!-- Load Font Awesome -->
   <script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous"></script>
-
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OptiBiz",
+      "url": "https://www.optibiz.agency",
+      "logo": "https://www.optibiz.agency/photos/OBNEWINLINEBLACK-1200x1200.png"
+    }
+    </script>
+    
   <!-- Custom JavaScript -->
   <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -84,7 +94,7 @@
     console.log(userAgent); // To check the user agent in the console
 
     if (userAgent.includes("Instagram")) {
-      alert("For a better experience, please open this page in your browser. (... Top right, 'Open in external browser')");
+      alert("For a better experience, please open this page in your browser! (... Top right, 'Open in external browser')");
     }
   });
     
