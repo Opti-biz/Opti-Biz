@@ -12,7 +12,7 @@ function loadCart() {
       cartContainer.innerHTML = `
           <div class="empty-cart-message">
               <p>Your cart is empty. Add items using the button below.</p>
-              <a href="course.html">Go to Services Page</a>
+              <a href="course.html">Go to Course Page</a>
           </div>
       `;
       cartSummary.innerHTML = '';

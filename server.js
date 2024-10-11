@@ -1,31 +1,34 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
+const nodemailer = require("nodemailer");
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 const app = express();
-const cors = require('cors');
 
-// Serve static files from the OPTIBIZTESTER directory
+// Middleware for HTTPS redirection, but only in production
 app.use((req, res, next) => {
-  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-    return res.redirect('https://' + req.get('Host') + req.url);
-  }
+  // Enforce HTTPS only in production and skip localhost
+  if (process.env.NODE_ENV === 'production' && req.hostname !== 'localhost') {
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+      return res.redirect('https://' + req.get('Host') + req.url);
+    }
 
-  // Redirect non-www to www
-  if (req.hostname === 'optibiz.agency') {
-    return res.redirect(301, 'https://www.optibiz.agency' + req.originalUrl);
+    // Redirect non-www to www in production
+    if (req.hostname === 'optibiz.agency') {
+      return res.redirect(301, 'https://www.optibiz.agency' + req.originalUrl);
+    }
   }
 
   next();
 });
 
-
+// Serve static files
 app.use(express.static(path.join(__dirname, '.')));
-
 app.use(cors());
 app.use(express.json());
 
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
-
+// Stripe product prices
 const itemPrices = new Map([
   [1, { priceInCents: 14900, name: "Course (Templates)" }],
   [2, { priceInCents: 59900, name: "Website Development (No payment Gateway)" }],
@@ -35,21 +38,18 @@ const itemPrices = new Map([
   [6, { priceInCents: 9900, name: "Deposit" }],
 ]);
 
+// Validate Stripe cart items
 const validateItems = (req, res, next) => {
-  console.log("Validating items:", req.body.items);
-
   if (!req.body.items || !Array.isArray(req.body.items)) {
     return res.status(400).json({ error: "Invalid items" });
   }
 
   for (const item of req.body.items) {
-    console.log("Validating item:", item);
     if (!item.id || !item.quantity) {
       return res.status(400).json({ error: "Invalid item structure" });
     }
 
     const itemPrice = itemPrices.get(item.id);
-    console.log("Item price found:", itemPrice);
     if (!itemPrice) {
       return res.status(400).json({ error: `Invalid item ID: ${item.id}` });
     }
@@ -59,33 +59,14 @@ const validateItems = (req, res, next) => {
     }
   }
 
-  console.log("Validation successful");
   next();
 };
 
+// Stripe checkout session creation
 app.post("/create-checkout-session", validateItems, async (req, res) => {
-  const YOUR_DOMAIN = 'https://optibiz-agency1-1c900b4236c5.herokuapp.com';
-
   try {
-    console.log("Received request to create a checkout session", req.body.items);
-
     const lineItems = req.body.items.map((item) => {
       const itemPrice = itemPrices.get(item.id);
-
-      if (!itemPrice) {
-        console.error(`Item with ID ${item.id} not found`);
-        throw new Error(`Item with ID ${item.id} not found`);
-      }
-
-      console.log(`Creating line item for ${itemPrice.name}:`, {
-        price_data: {
-          currency: "gbp",
-          product_data: { name: itemPrice.name },
-          unit_amount: itemPrice.priceInCents,
-        },
-        quantity: item.quantity,
-      });
-
       return {
         price_data: {
           currency: "gbp",
@@ -96,14 +77,6 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
       };
     });
 
-    console.log("Line items created:", lineItems);
-
-    const successUrl = `${process.env.SERVER_URL}/success.html`;
-    const cancelUrl = `${process.env.SERVER_URL}/cancel.html`;
-
-    console.log("Success URL:", successUrl);
-    console.log("Cancel URL:", cancelUrl);
-
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
@@ -112,8 +85,6 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
       cancel_url: `${process.env.SERVER_URL}/cancel.html`,
     });
 
-    console.log("Session created successfully:", session.id);
-
     res.json({ id: session.id });
   } catch (e) {
     console.error("Error creating session:", e);
@@ -121,13 +92,61 @@ app.post("/create-checkout-session", validateItems, async (req, res) => {
   }
 });
 
-// Test route to confirm server is up
+// Function to create Nodemailer transporter
+const createTransporter = () => {
+  let transporter = nodemailer.createTransport({
+    host: 'smtp.elasticemail.com',
+    port: 2525,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    }
+  });
+
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error("Transporter verification error:", error);
+    } else {
+      console.log("Server is ready to take our messages");
+    }
+  });
+
+  return transporter;
+};
+
+// POST route to handle form submission
+app.post('/send-email', async (req, res) => {
+  const { name, email, phone } = req.body;
+
+  if (!name || !email || !phone) {
+    return res.status(400).json({ error: "Please fill out all the fields." });
+  }
+
+  const transporter = createTransporter();
+
+  let mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.RECEIVING_EMAIL,
+    subject: "New Contact Form Submission",
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: "Form submitted successfully!" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ error: `Failed to send email: ${error.message}` });
+  }
+});
+
+// Test route to confirm server is working
 app.get("/test", (req, res) => {
   res.send("Server is working!");
 });
 
-
-
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

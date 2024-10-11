@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Web-Development Agency - Optimise Your Business Today, with your very Own Website - 100% Ownership.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Website, Web-Development, OptiBiz, Optibiz, optibiz, optibiz.agency, Optibiz.agency, OptiBiz.agency">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="photos/favicon-black.ico" type="image/x-icon">
+  <link rel="stylesheet" href="services.css">
+  
+  <title>OptiBiz | Services</title>
+</head>
+
+<script src="https://kit.fontawesome.com/e312fcd33f.js" crossorigin="anonymous"></script>
+
+<!-- Inline JavaScript for form validation and handling -->
+<script>
+  function validateForm(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const errorMessage = document.getElementById("error-message");
+    const successMessage = document.getElementById("success-message");
+
+    // Basic form validation
+    if (name === "" || email === "" || phone === "") {
+      errorMessage.style.display = "block";
+      successMessage.style.display = "none";
+      errorMessage.textContent = "Please fill out all the fields (Name, Email, and Phone).";
+    } else {
+      errorMessage.style.display = "none";
+
+      // Send the form data via an AJAX request (using fetch)
+      fetch('/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          successMessage.style.display = "block";
+          successMessage.textContent = "Form submitted successfully! ✔";
+          document.getElementById("contact-form").reset(); // Clear form
+        } else {
+          errorMessage.style.display = "block";
+          errorMessage.textContent = "Error submitting the form. Please try again later.";
+        }
+      })
+      .catch(error => {
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "There was an error submitting the form. Please try again later.";
+      });
+    }
+  }
+</script>
+
+<body>
+  <div class="container">
+    <!-- Header (remains unchanged) -->
+    <header>
+      <div class="header-left">
+        <h1>
+          <img src="photos/OBNEWINLINEWHITE.png" alt="OptiBiz Logo" style="height: 35px;">
+        </h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="course.html">Course</a></li>
+          <li><a href="cart.html"><i class="fas fa-cart-shopping"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section with Contact Form -->
+    <section class="hero-section">
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <div class="contact-form-container"> <!-- Updated Class -->
+          <div class="course-box">
+            <h2>Our Services</h2>
+            <p>Please fill out the form below, and we will reach out to you as soon as possible to schedule a call or answer your inquiries.</p>
+
+            <form id="contact-form" onsubmit="validateForm(event)">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required autocomplete="name">
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required autocomplete="email">
+
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required autocomplete="tel">
+
+              <!-- Error Message Display -->
+              <p id="error-message" style="color:red; display:none;"></p>
+
+              <!-- Success Message Display -->
+              <p id="success-message" style="color:green; display:none;"></p>
+
+              <!-- Submit Button -->
+              <button type="submit" class="add-to-cart-btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (remains unchanged) -->
+    <footer>
+      <p>&copy; 2024 OptiBiz Agency | All rights reserved | <a href="termsofservice.html">Terms of Service</a></p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/optibiz.agency?igsh=MWE2M" target="_blank" class="fab fa-instagram"></a>
+        <a href="https://www.tiktok.com/@optibiz_agency" target="_blank" class="fab fa-tiktok"></a>
+        <a href="https://x.com/opti_biz?s=21&t=O8WMIBNZqK8JX4ZdaXMtOw" target="_blank" class="fab fa-x-twitter"></a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

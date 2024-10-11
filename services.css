@@ -171,8 +171,7 @@ footer a {
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   min-height: 200px; /* Ensure the height of the boxes is increased */
@@ -569,6 +568,7 @@ nav ul li {
   .course-box {
     width: 100%;
     height: auto; /* Adjust height to fit content */
+    margin-bottom: -30px;
     margin-top: -20px;
   }
 }
